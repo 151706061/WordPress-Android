@@ -56,6 +56,9 @@ import org.wordpress.android.ui.media.MediaGalleryPickerActivity;
 import org.wordpress.android.ui.media.WordPressMediaUtils;
 import org.wordpress.android.ui.prefs.AppPrefs;
 import org.wordpress.android.ui.prefs.SiteSettingsInterface;
+import org.wordpress.android.ui.suggestion.adapters.TagSuggestionAdapter;
+import org.wordpress.android.ui.suggestion.util.SuggestionServiceConnectionManager;
+import org.wordpress.android.ui.suggestion.util.SuggestionUtils;
 import org.wordpress.android.util.AppLog;
 import org.wordpress.android.util.AppLog.T;
 import org.wordpress.android.util.DisplayUtils;
@@ -63,8 +66,10 @@ import org.wordpress.android.util.EditTextUtils;
 import org.wordpress.android.util.GeocoderUtils;
 import org.wordpress.android.util.JSONUtils;
 import org.wordpress.android.util.PermissionUtils;
+import org.wordpress.android.util.StringUtils;
 import org.wordpress.android.util.ToastUtils;
 import org.wordpress.android.util.helpers.LocationHelper;
+import org.wordpress.android.widgets.SuggestionAutoCompleteText;
 import org.xmlrpc.android.ApiHelper;
 
 import java.lang.reflect.Type;
@@ -86,15 +91,18 @@ public class EditPostSettingsFragment extends Fragment
     private Post mPost;
 
     private Spinner mStatusSpinner, mPostFormatSpinner;
-    private EditText mPasswordEditText, mTagsEditText, mExcerptEditText;
+    private EditText mPasswordEditText, mExcerptEditText;
     private TextView mPubDateText;
     private ViewGroup mSectionCategories;
     private ViewGroup mRootView;
     private TextView mFeaturedImageLabel;
     private NetworkImageView mFeaturedImageView;
     private Button mFeaturedImageButton;
+    private SuggestionAutoCompleteText mTagsEditText;
 
-    private int mFeaturedImageId;
+    private SuggestionServiceConnectionManager mSuggestionServiceConnectionManager;
+
+    private long mFeaturedImageId;
 
     private ArrayList<String> mCategories;
 
@@ -116,6 +124,14 @@ public class EditPostSettingsFragment extends Fragment
         if (getActivity() != null) {
             PreferenceManager.setDefaultValues(getActivity(), R.xml.account_settings, false);
         }
+    }
+
+    @Override
+    public void onDestroy() {
+        if (mSuggestionServiceConnectionManager != null) {
+            mSuggestionServiceConnectionManager.unbindFromService();
+        }
+        super.onDestroy();
     }
 
     @Override
@@ -152,7 +168,6 @@ public class EditPostSettingsFragment extends Fragment
 
             }
         });
-        mTagsEditText = (EditText) mRootView.findViewById(R.id.tags);
         mSectionCategories = ((ViewGroup) mRootView.findViewById(R.id.sectionCategories));
 
         mFeaturedImageLabel = (TextView) mRootView.findViewById(R.id.featuredImageLabel);
@@ -237,6 +252,13 @@ public class EditPostSettingsFragment extends Fragment
                         }
                     }
             );
+
+            mTagsEditText = (SuggestionAutoCompleteText) mRootView.findViewById(R.id.tags);
+            if (mTagsEditText != null) {
+                mTagsEditText.setTokenizer(new SuggestionAutoCompleteText.CommaTokenizer());
+
+                setupSuggestionServiceAndAdapter();
+            }
         }
 
         initSettingsFields();
@@ -264,6 +286,20 @@ public class EditPostSettingsFragment extends Fragment
                 return true;
             default:
                 return false;
+        }
+    }
+
+    private void setupSuggestionServiceAndAdapter() {
+        if (!isAdded()) return;
+
+        int remoteBlogId = -1;
+        String blogID = WordPress.getCurrentRemoteBlogId();
+        remoteBlogId = StringUtils.stringToInt(blogID, -1);
+
+        mSuggestionServiceConnectionManager = new SuggestionServiceConnectionManager(getActivity(), remoteBlogId);
+        TagSuggestionAdapter tagSuggestionAdapter = SuggestionUtils.setupTagSuggestions(remoteBlogId, getActivity(), mSuggestionServiceConnectionManager);
+        if (tagSuggestionAdapter != null) {
+            mTagsEditText.setAdapter(tagSuggestionAdapter);
         }
     }
 
@@ -339,11 +375,11 @@ public class EditPostSettingsFragment extends Fragment
         }
     }
 
-    public int getFeaturedImageId() {
+    public long getFeaturedImageId() {
         return mFeaturedImageId;
     }
 
-    public void updateFeaturedImage(int id) {
+    public void updateFeaturedImage(long id) {
         if (mFeaturedImageId != id) {
             mFeaturedImageId = id;
             if (mFeaturedImageId > 0) {
@@ -416,7 +452,7 @@ public class EditPostSettingsFragment extends Fragment
                             return;
                         }
 
-                        updateFeaturedImage(Integer.parseInt(ids.get(0)));
+                        updateFeaturedImage(Long.parseLong(ids.get(0)));
                     }
             }
         }

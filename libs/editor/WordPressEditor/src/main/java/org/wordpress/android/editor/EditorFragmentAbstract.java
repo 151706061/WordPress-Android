@@ -2,14 +2,17 @@ package org.wordpress.android.editor;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.Spanned;
+import android.view.DragEvent;
 
 import com.android.volley.toolbox.ImageLoader;
 
 import org.wordpress.android.util.helpers.MediaFile;
 import org.wordpress.android.util.helpers.MediaGallery;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public abstract class EditorFragmentAbstract extends Fragment {
@@ -21,7 +24,9 @@ public abstract class EditorFragmentAbstract extends Fragment {
     public abstract void appendGallery(MediaGallery mediaGallery);
     public abstract void setUrlForVideoPressId(String videoPressId, String url, String posterUrl);
     public abstract boolean isUploadingMedia();
+    public abstract boolean isActionInProgress();
     public abstract boolean hasFailedMediaUploads();
+    public abstract void removeAllFailedMediaUploads();
     public abstract void setTitlePlaceholder(CharSequence text);
     public abstract void setContentPlaceholder(CharSequence text);
 
@@ -47,8 +52,9 @@ public abstract class EditorFragmentAbstract extends Fragment {
     private static final String FEATURED_IMAGE_WIDTH_KEY   = "featured-image-width";
 
     protected EditorFragmentListener mEditorFragmentListener;
+    protected EditorDragAndDropListener mEditorDragAndDropListener;
     protected boolean mFeaturedImageSupported;
-    protected int mFeaturedImageId;
+    protected long mFeaturedImageId;
     protected String mBlogSettingMaxImageWidth;
     protected ImageLoader mImageLoader;
     protected boolean mDebugModeEnabled;
@@ -99,7 +105,7 @@ public abstract class EditorFragmentAbstract extends Fragment {
         mBlogSettingMaxImageWidth = blogSettingMaxImageWidth;
     }
 
-    public void setFeaturedImageId(int featuredImageId) {
+    public void setFeaturedImageId(long featuredImageId) {
         mFeaturedImageId = featuredImageId;
     }
 
@@ -140,12 +146,20 @@ public abstract class EditorFragmentAbstract extends Fragment {
         void onAddMediaClicked();
         void onMediaRetryClicked(String mediaId);
         void onMediaUploadCancelClicked(String mediaId, boolean delete);
-        void onFeaturedImageChanged(int mediaId);
+        void onFeaturedImageChanged(long mediaId);
         void onVideoPressInfoRequested(String videoId);
         String onAuthHeaderRequested(String url);
         // TODO: remove saveMediaFile, it's currently needed for the legacy editor
         void saveMediaFile(MediaFile mediaFile);
         void onTrackableEvent(TrackableEvent event);
+    }
+
+    /**
+     * Callbacks for drag and drop support
+     */
+    public interface EditorDragAndDropListener {
+        void onMediaDropped(ArrayList<Uri> mediaUri);
+        void onRequestDragAndDropPermissions(DragEvent dragEvent);
     }
 
     public enum TrackableEvent {

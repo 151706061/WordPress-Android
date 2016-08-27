@@ -4,6 +4,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.Spannable;
 import android.text.SpannableString;
+import android.text.TextUtils;
 import android.text.style.ForegroundColorSpan;
 import android.view.View;
 import android.view.ViewGroup;
@@ -55,6 +56,11 @@ public class StatsInsightsLatestPostSummaryFragment extends StatsAbstractInsight
             return;
         }
 
+        if (event.mInsightsLatestPostModel == null) {
+            showErrorUI();
+            return;
+        }
+
         mInsightsLatestPostModel = event.mInsightsLatestPostModel;
 
         // check if there is a post "published" on the blog
@@ -82,6 +88,11 @@ public class StatsInsightsLatestPostSummaryFragment extends StatsAbstractInsight
     @SuppressWarnings("unused")
     public void onEventMainThread(StatsEvents.InsightsLatestPostDetailsUpdated event) {
         if (!shouldUpdateFragmentOnUpdateEvent(event)) {
+            return;
+        }
+
+        if (mInsightsLatestPostModel == null || event.mInsightsLatestPostDetailsModel == null) {
+            showErrorUI();
             return;
         }
 
@@ -132,6 +143,10 @@ public class StatsInsightsLatestPostSummaryFragment extends StatsAbstractInsight
         ).toLowerCase();
 
         String postTitle = StringEscapeUtils.unescapeHtml(mInsightsLatestPostModel.getPostTitle());
+        if (TextUtils.isEmpty(postTitle)) {
+            postTitle = getString(R.string.stats_insights_latest_post_no_title);
+        }
+
         final String trendLabelFormatted = String.format(
                 trendLabel, sinceLabel, postTitle);
 

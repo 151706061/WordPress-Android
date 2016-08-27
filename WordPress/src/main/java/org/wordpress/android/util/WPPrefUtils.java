@@ -15,6 +15,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import org.wordpress.android.R;
+import org.wordpress.android.WordPress;
 import org.wordpress.android.widgets.TypefaceCache;
 
 import java.text.Collator;
@@ -194,6 +195,14 @@ public class WPPrefUtils {
         setTextViewAttributes(view, size, R.color.grey_dark, getNormalTypeface(view.getContext()));
     }
 
+    /**
+     * Styles a {@link TextView} to display text in a dialog message.
+     */
+    public static void layoutAsDialogMessage(TextView view) {
+        int size = view.getResources().getDimensionPixelSize(R.dimen.text_sz_small);
+        setTextViewAttributes(view, size, R.color.grey_darken_10, getNormalTypeface(view.getContext()));
+    }
+
     public static void setTextViewAttributes(TextView textView, int size, int colorRes, Typeface typeface) {
         textView.setTypeface(typeface);
         textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, size);
@@ -204,7 +213,7 @@ public class WPPrefUtils {
      * Gets a locale for the given language code.
      */
     public static Locale languageLocale(String languageCode) {
-        if (TextUtils.isEmpty(languageCode)) return Locale.getDefault();
+        if (TextUtils.isEmpty(languageCode)) return LanguageUtils.getCurrentDeviceLanguage(WordPress.getContext());
 
         if (languageCode.length() > NO_REGION_LANG_CODE_LEN) {
             return new Locale(languageCode.substring(0, NO_REGION_LANG_CODE_LEN),

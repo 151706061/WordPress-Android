@@ -1,6 +1,235 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="error_post_my_account_settings">הגדרות החשבון לא נשמרו</string>
+	<string name="title_follower">עוקב</string>
+	<string name="people_fetching">מאחזר משתמשים..</string>
+	<string name="people_dropdown_item_team">צוות</string>
+	<string name="reader_label_image_count">%d תמונות</string>
+	<string name="editor_failed_uploads_switch_html">מספר העלאות מדיה נכשלו. לא ניתן לעבור למצב HTML\n במצב זה. להסיר את כל ההעלאות שנכשלו ולהמשיך?</string>
+	<string name="format_bar_description_html">מצב HTML</string>
+	<string name="visual_editor">עורך ויזואלי</string>
+	<string name="image_thumbnail">תמונה ממוזערת של תמונה</string>
+	<string name="format_bar_description_ul">רשימה לא מסודרת</string>
+	<string name="format_bar_description_ol">רשימה מסודרת</string>
+	<string name="format_bar_description_more">הוספה</string>
+	<string name="format_bar_description_media">הוספת מדיה</string>
+	<string name="format_bar_description_quote">ציטוט</string>
+	<string name="format_bar_description_strike">קו חוצה</string>
+	<string name="format_bar_description_link">הוספת קישור</string>
+	<string name="format_bar_description_italic">נטוי</string>
+	<string name="format_bar_description_underline">קו תחתון</string>
+	<string name="image_width">רוחב</string>
+	<string name="format_bar_description_bold">מודגש</string>
+	<string name="image_settings_save_toast">שינוי נשמרו</string>
+	<string name="image_caption">כיתוב</string>
+	<string name="image_alt_text">טקסט חלופי</string>
+	<string name="image_link_to">קישור אל</string>
+	<string name="image_settings_dismiss_dialog_title">לבטל שינויים שלא נשמרו?</string>
+	<string name="stop_upload_dialog_title">לעצור העלאה?</string>
+	<string name="stop_upload_button">עצור העלאה</string>
+	<string name="alert_error_adding_media">אירעה שגיאה בעת הוספת מדיה</string>
+	<string name="alert_action_while_uploading">מתבצעת כרגע העלאת מדיה על-ידך. יש להמתין להשלמת הפעולה.</string>
+	<string name="alert_insert_image_html_mode">לא ניתן להוסיף מדיה ישירות במצב HTML. יש לחזור למצב ויזואלי.</string>
+	<string name="uploading_gallery_placeholder">מעלה גלריה…</string>
+	<string name="invite_error_some_failed">ההזמנה נשלחה אך אירעו שגיאות!</string>
+	<string name="invite_sent">ההזמנה נשלחה בהצלחה</string>
+	<string name="tap_to_try_again">יש להקיש כדי לנסות שוב!</string>
+	<string name="invite_error_for_username">%1$s: %2$s</string>
+	<string name="invite_error_sending">אירעה שגיאה בעת הניסיון לשלוח את ההזמנה!</string>
+	<string name="invite_error_invalid_usernames_multiple">לא ניתן לשלוח: יש שמות משתמש או כתובות אימייל לא תקפים</string>
+	<string name="invite_error_invalid_usernames_one">לא ניתן לשלוח: שם משתמש או אימייל לא תקפים</string>
+	<string name="invite_error_no_usernames">יש להוסיף שם משתמש אחד לפחות</string>
+	<string name="invite_message_info">(אופציונלי) אפשר להזין הודעה מותאמת אישית של עד 500 תווים שתיכלל בהזמנה למשתמשים.</string>
+	<string name="invite_message_remaining_other">נותרו %d תווים</string>
+	<string name="invite_message_remaining_one">תו אחד נותר</string>
+	<string name="invite_message_remaining_zero">לא נותרו תווים</string>
+	<string name="invite_invalid_email">כתובת האימייל \'%s\' לא תקפה</string>
+	<string name="invite_message_title">הודעה מותאמת אישית</string>
+	<string name="invite_already_a_member">כבר יש חבר בעל שם המשתמש \'%s\'</string>
+	<string name="invite_username_not_found">לא נמצא משתמש לשם המשתמש \'%s\'</string>
+	<string name="invite">הזמנה</string>
+	<string name="invite_names_title">שמות משתמש או אימיילים</string>
+	<string name="my_site_header_external">חיצוני</string>
+	<string name="send_link">שלח קישור</string>
+	<string name="signup_succeed_signin_failed">החשבון שלך נוצר, אך אירעה שגיאה כשהכנסנו אותך\n . יש לנסות להיכנס עם שם המשתמש והסיסמה החדשים שיצרת.</string>
+	<string name="invite_people">הזמנת אנשים</string>
+	<string name="label_clear_search_history">ניקוי היסטוריית חיפוש</string>
+	<string name="dlg_confirm_clear_search_history">לנקות היסטוריית חיפוש?</string>
+	<string name="reader_empty_posts_in_search_description">לא נמצאו פוסטים עבור %s בשפה שבחרת</string>
+	<string name="reader_label_post_search_running">מחפש...</string>
+	<string name="reader_empty_posts_in_search_title">לא נמצאו תוצאות</string>
+	<string name="reader_label_related_posts">חומרי קריאה קשורים</string>
+	<string name="reader_label_post_search_explainer">חיפוש בכל הבלוגים הציבוריים של WordPress.com</string>
+	<string name="reader_hint_post_search">חיפוש ב-WordPress.com</string>
+	<string name="reader_title_related_post_detail">באותו נושא</string>
+	<string name="reader_title_search_results">חיפוש %s</string>
+	<string name="preview_screen_links_disabled">קישורים מושבתים במסך התצוגה המקדימה</string>
+	<string name="draft_explainer">פוסט זה הוא טיוטה שלא פורסמה</string>
+	<string name="send">שלח</string>
+	<string name="user_remove_confirmation_message">לאחר הסרת %1$s, משתמש זה לא יקבל יותר גישה לאתר זה אך כל התוכן שנוצר על ידי %1$s יישאר באתר.\n\nבחרת להסיר משתמש זה - האם ההחלטה סופית?</string>
+	<string name="person_removed">הסרת בהצלחה את @%1$s</string>
+	<string name="person_remove_confirmation_title">הסרת %1$s</string>
+	<string name="reader_empty_posts_in_custom_list">האתרים ברשימה זו לא פרסמו דבר בזמן האחרון</string>
+	<string name="people">אנשים</string>
+	<string name="edit_user">עריכת פרטי משתמש</string>
+	<string name="role">תפקיד</string>
+	<string name="error_remove_user">לא ניתן היה להסיר משתמש</string>
+	<string name="error_fetch_viewers_list">לא הצלחנו לאחזר את משתמשי האתר</string>
+	<string name="error_update_role">לא הצלחנו לעדכן תפקיד משתמש</string>
+	<string name="gravatar_camera_and_media_permission_required">דרושות הרשאות לבחירה או לכידה של תמונה</string>
+	<string name="error_updating_gravatar">שגיאה בעדכון ה-gravatar שלך</string>
+	<string name="error_locating_image">שגיאה באיתור התמונה החתוכה</string>
+	<string name="error_refreshing_gravatar">שגיאה בטעינה מחדש של ה-gravatar שלך</string>
+	<string name="gravatar_tip">חדש! יש להקיש על ה-gravatar כדי לשנות אותו!</string>
+	<string name="error_cropping_image">שגיאה בחיתוך בתמונה</string>
+	<string name="launch_your_email_app">הפעלת אפליקציית האימייל</string>
+	<string name="checking_email">בודק אימייל</string>
+	<string name="not_on_wordpress_com">אינך ב-WordPress.com?</string>
+	<string name="magic_link_unavailable_error_message">לא זמין כרגע. יש להזין סיסמה</string>
+	<string name="check_your_email">יש לבדוק אימייל</string>
+	<string name="get_a_link_sent_to_your_email_to_sign_in_instantly">קבלת קישור להתחברות מיידית באימייל</string>
+	<string name="logging_in">נכנס</string>
+	<string name="enter_your_password_instead">במקום זאת יש להזין סיסמה</string>
+	<string name="web_address_dialog_hint">תוצג באופן ציבורי בעת פרסום תגובות שלך.</string>
+	<string name="jetpack_not_connected_message">תוסף Jetpack מותקן אבל לא מחובר ל-WordPress.com. האם ברצונך לחבר את Jetpack?</string>
+	<string name="username_email">אימייל או שם משתמש</string>
+	<string name="jetpack_not_connected">תוסף Jetpack לא מחובר</string>
+	<string name="new_editor_reflection_error">עורך ויזואלי לא תואם למכשיר שלך. הוא\n הושבת אוטומטית.</string>
+	<string name="stats_insights_latest_post_no_title">(חסרה כותרת)</string>
+	<string name="capture_or_pick_photo">בחירה או לכידה של תמונה</string>
+	<string name="plans_post_purchase_text_themes">כעת יש לך גישה בלתי מוגלת לערכות פרימיום. בתור התחלה, אפשר להציג כל אחת מהן בתצוגה מקדימה.</string>
+	<string name="plans_post_purchase_button_themes">חיפוש ערכות עיצוב</string>
+	<string name="plans_post_purchase_title_themes">מציאת ערכת פרימיום מושלמת</string>
+	<string name="plans_post_purchase_button_video">יצירת פוסט חדש</string>
+	<string name="plans_post_purchase_text_video">אפשר להעלות ולאחסן סרטוני וידאו באתר שלך דרך VideoPress ואחסון המדיה המורחב שלך.</string>
+	<string name="plans_post_purchase_title_video">סרטונים שיפיחו חיים בפוסטים</string>
+	<string name="plans_post_purchase_button_customize">התאמה אישית של האתר</string>
+	<string name="plans_post_purchase_text_customize">כעת יש לך גישה לגופנים מותאמים אישית, צבעים מותאמים אישית יכולות עריכה של CSS מותאם אישית.</string>
+	<string name="plans_post_purchase_text_intro">האתר שלך עושה סלטות מרוב התרגשות! זה הזמן לגלות את התכונות החדשות של האתר שלך ולבחור במה להתחיל.</string>
+	<string name="plans_post_purchase_title_customize">התאמה אישית של גופנים וצבעים</string>
+	<string name="plans_post_purchase_title_intro">הכול שלך, כל הכבוד!</string>
+	<string name="export_your_content_message">הפוסטים, העמודים וההגדרות שלך יישלחו באימייל לכתובת %s.</string>
+	<string name="plan">תוכנית</string>
+	<string name="plans">תוכניות</string>
+	<string name="plans_loading_error">לא ניתן לטעון תוכניות</string>
+	<string name="export_your_content">יצוא התוכן שלך</string>
+	<string name="exporting_content_progress">מייצא תוכן…</string>
+	<string name="export_email_sent">אימייל יצוא נשלח!</string>
+	<string name="premium_upgrades_message">קיימים שדרוגים פעילים באתר שלך. יש לבטל את השדרוגים לפני מחיקת האתר.</string>
+	<string name="show_purchases">הצגת רכישות</string>
+	<string name="checking_purchases">בודק רכישות</string>
+	<string name="premium_upgrades_title">שדרוגים</string>
+	<string name="purchases_request_error">משהו השתבש. לא ניתן לבקש רכישות.</string>
+	<string name="delete_site_progress">מוחק אתר…</string>
+	<string name="delete_site_summary">לא ניתן לבטל פעולה זו. מחיקת האתר שלך תסיר את כל התוכן, המשתתפים והדומיינים מהאתר.</string>
+	<string name="delete_site_hint">מחיקת אתר</string>
+	<string name="export_site_hint">יצוא האתר שלך לקובץ XML</string>
+	<string name="are_you_sure">ההחלטה הסופית?</string>
+	<string name="export_site_summary">אם ההחלטה שלך סופית, זה הזמן לייצא את התוכן שלך. לא ניתן יהיה לשחזר אותו בעתיד.</string>
+	<string name="keep_your_content">שמירת התוכן שלך</string>
+	<string name="domain_removal_hint">הדומיינים לא יעבדו עוד לאחר הסרת האתר</string>
+	<string name="domain_removal_summary">זהירות! מחיקת האתר שלך תסיר גם את הדומיינים להלן.</string>
+	<string name="primary_domain">דומיין ראשי</string>
+	<string name="domain_removal">הסרת דומיין</string>
+	<string name="error_deleting_site_summary">אירעה שגיאה בעת מחיקת האתר שלך. כדאי לפנות לתמיכה לקבלת סיוע נוסף</string>
+	<string name="error_deleting_site">שגיאה בעת מחיקת האתר</string>
+	<string name="confirm_delete_site_prompt">יש להקליד את הכתובת %1$s בשדה להלן כדי לאשר. לאחר מכן, האתר שלך ייעלם לעד.</string>
+	<string name="site_settings_export_content_title">יצוא תוכן</string>
+	<string name="contact_support">כדאי לפנות לתמיכה</string>
+	<string name="confirm_delete_site">אישור מחיקת אתר</string>
+	<string name="start_over_text">אם ברצונך להשתמש באתר בלי הפוסטים והעמודים שהוא מכיל, צוות התמיכה שלנו יכול למחוק את הפוסטים, העמודים, המדיה והתגובות עבורך.\n\nכך האתר וכתובת ה-URL שלך יישארו פעילים אבל תהיה לך אפשרות להתחיל ליצור תוכן מחדש. נותר לך רק לפנות אלינו כדי למחוק את התוכן הקיים.</string>
+	<string name="site_settings_start_over_hint">הקמת האתר מחדש</string>
+	<string name="let_us_help">נשמח לעזור</string>
+	<string name="me_btn_app_settings">הגדרות יישום</string>
+	<string name="start_over">להתחיל מחדש</string>
+	<string name="editor_remove_failed_uploads">הסרת העלאות שנכשלו</string>
+	<string name="editor_toast_failed_uploads">מספר העלאות מדיה נכשלו. לא ניתן לשמור או לפרסם\n הפוסט שלך במצב זה. האם ברצונך להסיר את כל המדיה שלא הועלתה?</string>
+	<string name="comments_empty_list_filtered_trashed">אין תגובות שהועברו לפח</string>
+	<string name="site_settings_advanced_header">אפשרויות מתקדמות</string>
+	<string name="comments_empty_list_filtered_pending">אין תגובות שממתינות לאישור</string>
+	<string name="comments_empty_list_filtered_approved">אין תגובות מאושרות</string>
+	<string name="button_done">בוצע</string>
+	<string name="button_skip">דילוג</string>
+	<string name="site_timeout_error">לא ניתן להתחבר ל-WordPress עקב שגיאה - תם הזמן הקצוב.</string>
+	<string name="xmlrpc_malformed_response_error">לא ניתן להתחבר. התקנת WordPress הגיבה עם מסמך XML-RPC לא תקף.</string>
+	<string name="xmlrpc_missing_method_error">לא ניתן להתחבר. שיטות XML-RPC נדרשות חסרות בשרת.</string>
+	<string name="post_format_video">וידאו</string>
+	<string name="align_left">שמאל</string>
+	<string name="align_center">מרכז</string>
+	<string name="align_right">ימין</string>
+	<string name="theme_free">חינם</string>
+	<string name="theme_premium">פרימיום</string>
+	<string name="align_none">ללא</string>
+	<string name="post_format_status">מצב</string>
+	<string name="theme_all">הכול</string>
+	<string name="post_format_chat">צ\'אט</string>
+	<string name="post_format_image">תמונה</string>
+	<string name="post_format_link">קישור</string>
+	<string name="post_format_quote">ציטוט</string>
+	<string name="post_format_gallery">גלריה</string>
+	<string name="post_format_standard">פוסט רגיל</string>
+	<string name="post_format_audio">אודיו</string>
+	<string name="notif_events">מידע על קורסים ואירועים ב-WordPress.com (ברשת ופרונטלי).</string>
+	<string name="post_format_aside">קצרצר</string>
+	<string name="notif_surveys">הזדמנויות להשתתף במחקרים וסקרים של WordPress.com.</string>
+	<string name="notif_tips">טיפים כדי להפיק את המרב מ-WordPress.com.</string>
+	<string name="notif_community">קהילה</string>
+	<string name="notif_suggestions">הצעות</string>
+	<string name="replies_to_my_comments">מענה לתגובות שלי</string>
+	<string name="notif_research">מחקר</string>
+	<string name="site_achievements">הישגי אתר</string>
+	<string name="username_mentions">אזכורים של שם משתמש</string>
+	<string name="likes_on_my_posts">לייקים בפוסטים שלי</string>
+	<string name="site_follows">עוקבים אחרי האתר</string>
+	<string name="likes_on_my_comments">לייקים בתגובות שלי</string>
+	<string name="comments_on_my_site">תגובות באתר שלי</string>
+	<string name="site_settings_list_editor_summary_other">%d פריטים</string>
+	<string name="site_settings_list_editor_summary_one">פריט אחד</string>
+	<string name="approve_auto">כל המשתמשים</string>
+	<string name="approve_auto_if_previously_approved">תגובות של משתמשים מוכרים</string>
+	<string name="approve_manual">אין תגובות</string>
+	<string name="site_settings_paging_summary_other">%d תגובות לעמוד</string>
+	<string name="site_settings_paging_summary_one">תגובה אחת לעמוד</string>
+	<string name="site_settings_multiple_links_summary_other">נדרש אישור עבור יותר מ-%d קישורים</string>
+	<string name="site_settings_multiple_links_summary_one">נדרש אישור עבור יותר מקישור אחד</string>
+	<string name="site_settings_multiple_links_summary_zero">נדרש אישור עבור יותר מ-0 קישורים</string>
+	<string name="detail_approve_auto">אישור אוטומטי של תגובות מכולם.</string>
+	<string name="detail_approve_auto_if_previously_approved">אישור אוטומטי אם תגובה קודמת של המשתמש אושרה</string>
+	<string name="detail_approve_manual">אישור ידני דרוש לתגובות מכולם.</string>
+	<string name="days_quantity_one">יום אחד</string>
+	<string name="days_quantity_other">%d ימים</string>
+	<string name="filter_trashed_posts">הועבר לפח</string>
+	<string name="filter_published_posts">פורסם</string>
+	<string name="filter_draft_posts">טיוטות</string>
+	<string name="filter_scheduled_posts">מתוזמן לפרסום</string>
+	<string name="primary_site">אתר ראשי</string>
+	<string name="pending_email_change_snackbar">יש ללחוץ על הקישור לאימות באימייל שנשלח לכתובת %1$s כדי לאשר את כתובתך החדשה</string>
+	<string name="web_address">כתובת URL</string>
+	<string name="editor_toast_uploading_please_wait">מתבצעת כרגע העלאת מדיה על-ידך. יש להמתין להשלמת הפעולה.</string>
+	<string name="error_refresh_comments_showing_older">לא ניתן לרענן תגובות כרגע - מציג תגובות ישנות</string>
+	<string name="editor_post_settings_set_featured_image">קביעת תמונה מרכזית</string>
+	<string name="editor_post_settings_featured_image">תמונה מרכזית</string>
+	<string name="new_editor_promo_desc">אפליקציית WordPress עבור Android כוללת כעת עורך ויזואלי חדש\n ויפהפה. ניתן להתנסות בו על ידי יצירת פוסט חדש.</string>
+	<string name="new_editor_promo_title">עורך חדש ומחודש</string>
+	<string name="new_editor_promo_button_label">נהדר, תודה!</string>
+	<string name="visual_editor_enabled">עורך ויזואלי מופעל</string>
+	<string name="editor_content_placeholder">מומלץ לשתף את הסיפור שלך כאן…</string>
+	<string name="editor_page_title_placeholder">כותרת עמוד</string>
+	<string name="editor_post_title_placeholder">כותרת הפוסט</string>
+	<string name="email_address">כתובת אימייל</string>
+	<string name="preference_show_visual_editor">הצגת עורך ויזואלי</string>
+	<string name="preference_editor">עורך</string>
+	<string name="dlg_sure_to_delete_comments">האם למחוק תגובות אלה לצמיתות?</string>
+	<string name="dlg_sure_to_delete_comment">האם למחוק תגובה זו לצמיתות?</string>
+	<string name="mnu_comment_delete_permanently">מחיקה</string>
+	<string name="comment_deleted_permanently">התגובה נמחקה</string>
+	<string name="mnu_comment_untrash">שחזור</string>
+	<string name="comments_empty_list_filtered_spam">אין תגובות זבל</string>
+	<string name="could_not_load_page">לא ניתן היה לטעון את העמוד</string>
+	<string name="comment_status_all">הכול</string>
+	<string name="interface_language">שפת ממשק</string>
+	<string name="off">כיבוי</string>
+	<string name="about_the_app">מידע על האפליקציה</string>
+	<string name="error_post_account_settings">לא ניתן לשמור הגדרות החשבון</string>
 	<string name="error_post_my_profile">הפרופיל לא נשמר</string>
 	<string name="error_fetch_account_settings">לא ניתן לאחזר את הגדרות החשבון שלך</string>
 	<string name="error_fetch_my_profile">לא ניתן לאחזר את הפרופיל שלך</string>
@@ -15,6 +244,9 @@
 	<string name="remove">להסיר</string>
 	<string name="disabled">לא מופעל</string>
 	<string name="site_settings_image_original_size">גודל מקורי</string>
+	<string name="privacy_private">האתר גלוי רק לך ולמשתמשים שאישרת</string>
+	<string name="privacy_public_not_indexed">האתר שלך גלוי לכולם אבל שולח בקשה למנועי חיפוש לא לצרף אותו לאינדקס</string>
+	<string name="privacy_public">האתר שלך גלוי לכולם ומנועי חיפוש יכולים לצרף אותו לאינדקס</string>
 	<string name="about_me_hint">תיאור אישי בכמה מילים…</string>
 	<string name="public_display_name_hint">אם לא יוגדר אחרת, שם המשתמש שלך ישמש כשם תצוגה בברירת מחדל</string>
 	<string name="about_me">מי אני</string>
@@ -278,7 +510,7 @@
 	<string name="me_btn_login_logout">כניסה/יציאה</string>
 	<string name="me_connect_to_wordpress_com">התחברת לוורדפרס.קום</string>
 	<string name="site_picker_cant_hide_current_site">"%s" לא הוסתר מכיוון שזהו האתר הנוכחי</string>
-	<string name="me_btn_settings">הגדרות חשבון</string>
+	<string name="account_settings">הגדרות חשבון</string>
 	<string name="me_btn_support">עזרה ותמיכה</string>
 	<string name="site_picker_create_dotcom">יצירת אתר וורדפרס.קום</string>
 	<string name="site_picker_edit_visibility">הצגת/הסתרת אתרים</string>
@@ -292,7 +524,6 @@
 	<string name="my_site_header_look_and_feel">סגנון</string>
 	<string name="my_site_btn_site_settings">הגדרות</string>
 	<string name="my_site_btn_blog_posts">פוסטים בבלוג</string>
-	<string name="my_site_header_admin">מנהל מערכת</string>
 	<string name="reader_label_new_posts_subtitle">יש ללחוץ כדי להציג</string>
 	<string name="my_site_header_configuration">הגדרות תצורה</string>
 	<string name="notifications_account_required">התחברות לוורדפרס.קום עבור התראות</string>
@@ -487,11 +718,9 @@
 	<string name="hs__invalid_email_error">נא להזין כתובת אימייל</string>
 	<string name="add_location">הוספת מיקום</string>
 	<string name="current_location">מיקום נוכחי</string>
-	<string name="your_signature">החתימה שלך:</string>
 	<string name="search_location">חיפוש</string>
 	<string name="edit_location">עריכה</string>
 	<string name="search_current_location">אתר</string>
-	<string name="preference_privacy">פרטיות</string>
 	<string name="preference_send_usage_stats">שליחת סטטיסטיקות</string>
 	<string name="preference_send_usage_stats_summary">שליחת נתוני שימוש סטטיסטיים שיאפשרו לנו לשפר את WordPress לאנדרויד</string>
 	<string name="update_verb">עדכן</string>
@@ -518,7 +747,6 @@
 	<string name="help_center">מרכז עזרה</string>
 	<string name="ssl_certificate_error">אישור SSL לא תקף</string>
 	<string name="ssl_certificate_ask_trust">אם בדרך כלל אתה מתחבר לאתר זה ללא בעיות, ייתכן ששגיאה זו נובעת מכך שמישהו מנסה להתחזות לאתר ולכן אסור לך להמשיך. האם ברצונך בכל זאת לתת אמון באישור?</string>
-	<string name="invalid_url_message">ודא שכתובת ה-URL של האתר שהוזנה תקפה</string>
 	<string name="blog_not_found">אירעה שגיאה בזמן הגישה לאתר זה</string>
 	<string name="could_not_remove_account">לא ניתן היה להסיר את האתר</string>
 	<string name="out_of_memory">זיכרון המכשיר מלא</string>
@@ -536,7 +764,6 @@
 	<string name="cat_name_required">שם הקטגוריה הוא שדה חובה</string>
 	<string name="category_automatically_renamed">שם הקטגוריה %1$s אינו תקף. הוא שונה ל-%2$s.</string>
 	<string name="no_account">לא נמצא חשבון ב-WordPress, הוסף חשבון ונסה שנית</string>
-	<string name="auto_sharing_preference_reset">איפוס הגדרות שיתוף אוטומטי</string>
 	<string name="sdcard_message">יש לטעון כרטיס SD כדי להעלות קבצים</string>
 	<string name="stats_empty_comments">עדיין אין תגובות</string>
 	<string name="stats_bar_graph_empty">הנתונים הסטטיסטיים לא זמינים</string>
@@ -582,7 +809,7 @@
 	<string name="blog_name_reserved_but_may_be_available">אתר זה שמור כעת אך עשוי להיות זמין בעוד כמה ימים</string>
 	<string name="username_or_password_incorrect">שם המשתמש או הסיסמה שהקלדת שגויים</string>
 	<string name="nux_cannot_log_in">איננו יכולים לחבר אותך</string>
-	<string name="auto_sharing_preference_reset_caused_by_error">האתר שנבחר כבר אינו גלוי</string>
+	<string name="invalid_url_message">ודא שכתובת האתר שהוזנה תקפה</string>
 	<string name="wordpress_blog">אתר ב-WordPress</string>
 	<string name="blog_removed_successfully">האתר הוסר בהצלחה</string>
 	<string name="add_account_blog_url">כתובת האתר</string>
@@ -678,7 +905,6 @@
 	<string name="reader_toast_err_remove_tag">לא ניתן להסיר תגית זו</string>
 	<string name="required_field">שדה חובה</string>
 	<string name="email_hint">כתובת אימייל</string>
-	<string name="username_email">שם משתמש או כתובת אימייל</string>
 	<string name="site_address">כתובת האחסון העצמי שלך (URL)</string>
 	<string name="email_cant_be_used_to_signup">אינך רשאי להשתמש בכתובת אימייל זו בהרשמה. יש לנו בעיה מכיוון שהם חוסמים חלק מהודעות האימייל שלנו. השתמש בספק אימייל אחר.</string>
 	<string name="email_reserved">כתובת אימייל זו כבר הייתה בשימוש. חפש בתיבת הדואר הנכנס שלך אימייל להפעלה. אם לא תפעיל עכשיו תוכל לנסות שנית בעוד כמה ימים.</string>
@@ -686,6 +912,7 @@
 	<string name="blog_name_invalid">כתובת אתר לא תקפה</string>
 	<string name="blog_title_invalid">כותרת אתר לא תקפה</string>
 	<string name="notifications_empty_all">אין התראות... עדיין.</string>
+	<string name="invalid_site_url_message">יש לוודא שכתובת ה-URL של האתר שהוזנה תקפה</string>
 	<string name="share_url_post">שתף פוסט</string>
 	<string name="share_url_page">שתף עמוד</string>
 	<string name="share_link">קישור לשיתוף</string>
@@ -702,9 +929,6 @@
 	<string name="reader_label_reply">תשובה</string>
 	<string name="video">וידאו</string>
 	<string name="download">מוריד מדיה</string>
-	<string name="share_preference_title">שתף ב-WordPress</string>
-	<string name="reset_auto_share_preference">אפס הגדרות לשיתוף אוטומטי</string>
-	<string name="always_use_these_settings_to_share">השתמש תמיד בהגדרות אלה</string>
 	<string name="comment_spammed">התגובה סומנה כתגובת זבל</string>
 	<string name="select_time">בחר שעה</string>
 	<string name="reader_likes_you_and_one">אתה ועוד אחד אוהבים את זה</string>
@@ -751,6 +975,7 @@
 	<string name="reader_empty_followed_tags">אין מעקב אחר שום תגית</string>
 	<string name="create_account_wpcom">יצירת חשבון וורדפרס.קום</string>
 	<string name="connecting_wpcom">מתחבר לוורדפרס.קום</string>
+	<string name="button_next">לשלב הבא</string>
 	<string name="themes">ערכות עיצוב</string>
 	<string name="all">הכל</string>
 	<string name="images">תמונות</string>
@@ -766,8 +991,6 @@
 	<string name="media_gallery_type_tiled">אריחים</string>
 	<string name="media_gallery_type_circles">עיגולים</string>
 	<string name="media_gallery_type_slideshow">מצגת</string>
-	<string name="media_no_video_title">VideoPress לא זמין</string>
-	<string name="media_no_video_message">שדרג ל-VideoPress כדי להעלות וידאו!</string>
 	<string name="media_edit_title_text">כותרת</string>
 	<string name="media_edit_caption_text">כיתוב</string>
 	<string name="media_edit_description_text">תיאור</string>
@@ -811,6 +1034,7 @@
 	<string name="passcode_preference_title">נעילת קוד אישי</string>
 	<string name="passcode_turn_off">הפסק נעילת קוד אישי</string>
 	<string name="passcode_turn_on">הפעל נעילת קוד אישי</string>
+	<string name="discard">הסתר</string>
 	<string name="upload">העלאה</string>
 	<string name="sign_in">התחבר</string>
 	<string name="notifications">התראות</string>
@@ -819,8 +1043,6 @@
 	<string name="more_notifications">הוסף %d נוספים.</string>
 	<string name="follows">עוקבים</string>
 	<string name="loading">טוען...</string>
-	<string name="post_signature">חתימה</string>
-	<string name="add_tagline">הוסף חתימה לפוסטים חדשים</string>
 	<string name="httpuser">שם משתמש</string>
 	<string name="httppassword">סיסמה</string>
 	<string name="error_media_upload">ארעה שגיאה במהלך העלאת הקובץ.</string>
@@ -847,15 +1069,15 @@
 	<string name="upload_scaled_image">העלאה וקישור לתמונה</string>
 	<string name="scheduled">תוזמן</string>
 	<string name="link_enter_url">URL</string>
-	<string name="posted_from">פורסם דרך וורדפרס עבור אנדרואיד</string>
+	<string name="uploading">מעלה...</string>
 	<string name="version">גרסה</string>
 	<string name="tos">תנאי שימוש</string>
 	<string name="app_title">וורדפרס עבור אנדרואיד</string>
-	<string name="about">אודות</string>
 	<string name="max_thumbnail_px_width">ברירת מחדל לרוחב תמונה</string>
 	<string name="image_alignment">יישור</string>
 	<string name="refresh">רענון</string>
 	<string name="untitled">ללא כותרת</string>
+	<string name="edit">עריכה</string>
 	<string name="post_id">פוסט</string>
 	<string name="page_id">עמוד</string>
 	<string name="immediately">מיד</string>
@@ -873,9 +1095,10 @@
 	<string name="categories">קטגוריות</string>
 	<string name="tags_separate_with_commas">תגים (יש להפריד בפסיקים)</string>
 	<string name="title">כותרת</string>
+	<string name="dlg_deleting_comments">מוחק תגובות</string>
 	<string name="notification_vibrate">רטט</string>
-	<string name="notification_sound">שמע צליל התראה</string>
 	<string name="notification_blink">האר נורית הודעה</string>
+	<string name="notification_sound">צליל התראה</string>
 	<string name="status">סטטוס</string>
 	<string name="location">מיקום</string>
 	<string name="sdcard_title">דרוש כרטיס SD</string>
@@ -896,70 +1119,4 @@
 	<string name="reply">תגובה</string>
 	<string name="preview">תצוגה מקדימה</string>
 	<string name="notification_settings">הגדרות התראות</string>
-	<string-array name="alignment_array">
-		<item>ללא</item>
-		<item>שמאל</item>
-		<item>מרכז</item>
-		<item>ימין</item>
-	</string-array>
-	<string-array name="notifications_blog_settings">
-		<item>תגובות באתר שלי</item>
-		<item>לייקים בתגובות שלי</item>
-		<item>לייקים בפוסטים שלי</item>
-		<item>עוקבי אתר</item>
-		<item>הישגי אתר</item>
-		<item>איזכורי משתמש</item>
-	</string-array>
-	<string-array name="notifications_other_settings">
-		<item>מענה לתגובות שלי</item>
-		<item>לייקים לתגובות שלי</item>
-	</string-array>
-	<string-array name="notifications_wpcom_settings">
-		<item>הצעות</item>
-		<item>חיפוש חוזר</item>
-		<item>קהילה</item>
-	</string-array>
-	<string-array name="notifications_wpcom_settings_summaries">
-		<item>טיפים כדי להפיק את המיטב מוורדפרס.קום.</item>
-		<item>הזדמנות להשתתף במחקר &amp; סקר של וורדפרס.קום.</item>
-		<item>מידע על קורסים ואירועים בוורדפרס.קום (ברשת &amp; פרונטלי).</item>
-	</string-array>
-	<string-array name="post_filters_array">
-		<item>פורסם</item>
-		<item>טיוטות</item>
-		<item>מתוזמן לפרסום</item>
-		<item>הועבר לפח</item>
-	</string-array>
-	<string-array name="post_formats_array">
-		<item>הערה</item>
-		<item>אודיו</item>
-		<item>צ\'אט</item>
-		<item>גלריה</item>
-		<item>תמונה</item>
-		<item>קישור</item>
-		<item>ציטוט</item>
-		<item>רגיל</item>
-		<item>סטטוס</item>
-		<item>וידאו</item>
-	</string-array>
-	<string-array name="privacy_details">
-		<item>האתר שלך גלוי לכולם ומנועי חיפוש יכולים לצרף אותו לאינדקס</item>
-		<item>האתר שלך גלוי לכולם אבל שולח בקשה למנועי חיפוש לא לצרף אותו לאינדקס</item>
-		<item>האתר גלוי רק לך ולמשתמשים שאישרת</item>
-	</string-array>
-	<string-array name="site_settings_auto_approve_details">
-		<item>אישור ידני דרוש לתגובות מכולם.</item>
-		<item>אישור אוטומטי אם תגובה קודמת של המשתמש אושרה.</item>
-		<item>אישור אוטומטי של תגובות מכולם.</item>
-	</string-array>
-	<string-array name="site_settings_auto_approve_entries">
-		<item>אין תגובות</item>
-		<item>תגובות של משתמשים מוכרים</item>
-		<item>כל המשתמשים</item>
-	</string-array>
-	<string-array name="themes_filter_array">
-		<item>חינם</item>
-		<item>הכל</item>
-		<item>פרימיום</item>
-	</string-array>
 </resources>

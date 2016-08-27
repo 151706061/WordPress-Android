@@ -1,6 +1,222 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="error_post_my_account_settings">계정 설정을 저장할 수 없습니다.</string>
+	<string name="editor_failed_uploads_switch_html">일부 미디어 업로드에 실패했습니다. 이 상태에서는 HTML 모드로 전환할 수\n 없습니다. 실패한 업로드를 모두 제거하고 계속할까요?</string>
+	<string name="format_bar_description_html">HTML 모드</string>
+	<string name="visual_editor">비주얼 편집기</string>
+	<string name="image_thumbnail">이미지 썸네일</string>
+	<string name="format_bar_description_ul">순서 없는 목록</string>
+	<string name="format_bar_description_ol">순서 있는 목록</string>
+	<string name="format_bar_description_more">추가 삽입</string>
+	<string name="format_bar_description_media">미디어 삽입</string>
+	<string name="format_bar_description_link">링크 삽입</string>
+	<string name="format_bar_description_strike">취소선</string>
+	<string name="format_bar_description_quote">인용 차단</string>
+	<string name="format_bar_description_italic">이탤릭</string>
+	<string name="format_bar_description_underline">밑줄</string>
+	<string name="image_settings_save_toast">변경사항 저장됨</string>
+	<string name="image_caption">캡션</string>
+	<string name="image_alt_text">대체 텍스트</string>
+	<string name="image_link_to">링크 연결 대상:</string>
+	<string name="image_width">가로</string>
+	<string name="format_bar_description_bold">굵게</string>
+	<string name="image_settings_dismiss_dialog_title">저장되지 않은 변경 사항을 취소할까요?</string>
+	<string name="stop_upload_dialog_title">업로드를 중지할까요?</string>
+	<string name="stop_upload_button">업로드 중지</string>
+	<string name="alert_error_adding_media">미디어를 삽입하는 동안 오류가 발생했습니다.</string>
+	<string name="alert_action_while_uploading">미디어를 업로드 중입니다. 완료될 때까지 기다려 주세요.</string>
+	<string name="alert_insert_image_html_mode">HTML 모드에서 직접 미디어를 삽입할 수 없습니다. 비주얼 모드로 전환하세요.</string>
+	<string name="uploading_gallery_placeholder">갤러리 업데이트 중...</string>
+	<string name="invite_sent">초대를 전송했습니다.</string>
+	<string name="tap_to_try_again">눌러서 다시 시도하세요!</string>
+	<string name="invite_message_info">(선택사항) 사용자 초대에 포함될 사용자 정의 메시지를 500자까지 입력할 수 있습니다.</string>
+	<string name="invite_message_remaining_other">%d자 남음</string>
+	<string name="invite_message_remaining_one">1자 남음</string>
+	<string name="invite_message_remaining_zero">0자 남음</string>
+	<string name="invite_invalid_email">이메일 주소 \'%s\'이(가) 유효하지 않음</string>
+	<string name="invite_message_title">사용자 정의 메시지</string>
+	<string name="invite_already_a_member">사용자명이 \'%s\'인 회원이 이미 있습니다.</string>
+	<string name="invite_username_not_found">사용자명이 \'%s\'인 사용자를 찾을 수 없습니다.</string>
+	<string name="invite">초대</string>
+	<string name="invite_names_title">사용자명 또는 이메일</string>
+	<string name="signup_succeed_signin_failed">회원님의 계정이 생성되었으나 로그인하는 동안 오류가\n 발생했습니다. 새로 만든 사용자명 및 비밀번호로 로그인해 보세요.</string>
+	<string name="send_link">링크 전송</string>
+	<string name="my_site_header_external">외부</string>
+	<string name="invite_people">사용자 초대</string>
+	<string name="label_clear_search_history">검색 내역 지우기</string>
+	<string name="dlg_confirm_clear_search_history">검색 내역을 지울까요?</string>
+	<string name="reader_empty_posts_in_search_description">사용자 언어로 된 %s에 대한 글을 찾을 수 없습니다.</string>
+	<string name="reader_label_post_search_running">검색 중...</string>
+	<string name="reader_label_related_posts">관련 읽을거리</string>
+	<string name="reader_empty_posts_in_search_title">글을 찾을 수 없습니다.</string>
+	<string name="reader_label_post_search_explainer">모든 공개 워드프레스닷컴 블로그 검색</string>
+	<string name="reader_hint_post_search">워드프레스닷컴 검색</string>
+	<string name="reader_title_related_post_detail">관련 글</string>
+	<string name="reader_title_search_results">%s 검색</string>
+	<string name="preview_screen_links_disabled">미리보기 화면에서 링크가 비활성화되어 있습니다.</string>
+	<string name="draft_explainer">이 글은 아직 발행되지 않은 임시글입니다.</string>
+	<string name="send">보내기</string>
+	<string name="person_remove_confirmation_title">%1$s 제거</string>
+	<string name="reader_empty_posts_in_custom_list">이 목록에 있는 사이트에서 최근 게시된 글이 없습니다.</string>
+	<string name="people">사람</string>
+	<string name="edit_user">사용자 편집</string>
+	<string name="role">역할</string>
+	<string name="error_remove_user">사용자를 제거할 수 없습니다.</string>
+	<string name="error_update_role">사용자 역할을 업데이트할 수 없습니다.</string>
+	<string name="gravatar_camera_and_media_permission_required">사진을 선택하거나 캡처하려면 권한이 필요합니다.</string>
+	<string name="error_updating_gravatar">Gravatar를 업데이트하는 중 오류가 발생했습니다.</string>
+	<string name="error_locating_image">잘린 이미지를 찾는 중 오류가 발생했습니다.</string>
+	<string name="error_refreshing_gravatar">Gravatar를 다시 로드하는 중 오류가 발생했습니다.</string>
+	<string name="gravatar_tip">새로운 기능 Gravatar를 변경하려면 탭하세요.</string>
+	<string name="error_cropping_image">이미지를 자르는 중 오류가 발생했습니다.</string>
+	<string name="launch_your_email_app">이메일 앱 시작</string>
+	<string name="checking_email">이메일 확인 중</string>
+	<string name="not_on_wordpress_com">워드프레스닷컴을 사용하고 있지 않습니까?</string>
+	<string name="magic_link_unavailable_error_message">현재 사용할 수 없습니다. 비밀번호를 입력하세요.</string>
+	<string name="check_your_email">이메일을 확인하세요.</string>
+	<string name="get_a_link_sent_to_your_email_to_sign_in_instantly">바로 로그인하려면 이메일로 링크를 받으세요.</string>
+	<string name="logging_in">로그인 중</string>
+	<string name="enter_your_password_instead">비밀번호를 대신 입력하세요.</string>
+	<string name="web_address_dialog_hint">댓글을 달 때 공개적으로 표시합니다.</string>
+	<string name="jetpack_not_connected_message">젯팩 플러그인이 설치되었지만 워드프레스닷컴에 연결되지 않았습니다. 젯팩을 연결하시겠습니까?</string>
+	<string name="username_email">이메일 또는 사용자명</string>
+	<string name="jetpack_not_connected">젯팩 플러그인이 연결되지 않았습니다.</string>
+	<string name="new_editor_reflection_error">비주얼 편집기가 장치와 호환되지 않습니다. 자동으로\n 사용 중지되었습니다.</string>
+	<string name="stats_insights_latest_post_no_title">(제목 없음)</string>
+	<string name="capture_or_pick_photo">사진 캡처 또는 선택</string>
+	<string name="plans_post_purchase_text_themes">이제 프리미엄 테마에 무제한으로 접근할 수 있습니다. 시작하려면 아무 테마나 미리보기하시면 됩니다.</string>
+	<string name="plans_post_purchase_button_themes">테마 찾아보기</string>
+	<string name="plans_post_purchase_title_themes">완벽한 프리미엄 테마 찾기</string>
+	<string name="plans_post_purchase_button_video">새 글 시작</string>
+	<string name="plans_post_purchase_text_video">확장된 미디어 저장 공간과 함께 비디오프레스를 통해 사이트에 비디오를 업로드하고 호스팅할 수 있습니다.</string>
+	<string name="plans_post_purchase_title_video">비디오를 통해 글을 생동감 있게 구현</string>
+	<string name="plans_post_purchase_button_customize">사이트 수정하기</string>
+	<string name="plans_post_purchase_text_customize">이제 사용자 정의 글꼴, 사용자 정의 색상 및 사용자 정의 CSS 편집 기능에 액세스할 수 있습니다.</string>
+	<string name="plans_post_purchase_title_customize">글꼴과 색상 수정하기</string>
+	<string name="plans_post_purchase_text_intro">사이트를 마음껏 이용하세요! 이제 사이트의 새로운 기능을 살펴보고 시작하려는 위치를 선택하세요.</string>
+	<string name="plans_post_purchase_title_intro">구매하셨습니다. 지금 사용해보세요.</string>
+	<string name="export_your_content_message">글, 페이지, 설정을 %s로 발송할 것입니다.</string>
+	<string name="plan">계획</string>
+	<string name="plans">계획</string>
+	<string name="plans_loading_error">요금제를 로드할 수 없음</string>
+	<string name="export_your_content">콘텐츠 내보내기</string>
+	<string name="exporting_content_progress">콘텐츠를 내보내는 중…</string>
+	<string name="export_email_sent">전송된 이메일을 내보내세요!</string>
+	<string name="premium_upgrades_message">회원님의 사이트에서 프리미엄 업그레이드가 활성화되었습니다. 사이트를 삭제하기 전에 업그레이드를 취소하세요.</string>
+	<string name="show_purchases">구매 항목 표시</string>
+	<string name="checking_purchases">구매 항목 확인 중</string>
+	<string name="premium_upgrades_title">프리미엄 업그레이드</string>
+	<string name="purchases_request_error">문제가 생겼습니다. 구매를 요청할 수 없습니다.</string>
+	<string name="delete_site_progress">사이트를 삭제하는 중…</string>
+	<string name="delete_site_summary">이 작업은 되돌릴 수 없습니다. 사이트를 삭제하면 사이트의 모든 콘텐츠, 공동 작업자 및 도메인도 제거됩니다.</string>
+	<string name="delete_site_hint">사이트 삭제</string>
+	<string name="export_site_hint">사이트를 XML 파일로 내보내기</string>
+	<string name="are_you_sure">확실합니까?</string>
+	<string name="export_site_summary">확실한 경우 시간을 내서 지금 콘텐츠를 내보내세요. 나중에 복구할 수 없습니다.</string>
+	<string name="keep_your_content">콘텐츠 유지</string>
+	<string name="domain_removal_hint">사이트를 제거하면 도메인이 작동하지 않게 됩니다.</string>
+	<string name="domain_removal_summary">조심하세요! 사이트를 삭제하면 아래 나열된 도메인도 제거됩니다.</string>
+	<string name="primary_domain">주 도메인</string>
+	<string name="domain_removal">도메인 삭제</string>
+	<string name="error_deleting_site_summary">사이트를 삭제하는 동안 오류가 발생했습니다. 도움이 필요하면 사용자지원에 요청하세요.</string>
+	<string name="error_deleting_site">사이트 삭제 오류</string>
+	<string name="confirm_delete_site_prompt">확인을 위해 아래 칸에 %1$s를 입력하세요. 사이트가 영원히 사라질 것입니다.</string>
+	<string name="site_settings_export_content_title">내용 내보내기</string>
+	<string name="confirm_delete_site">사이트 삭제 확인</string>
+	<string name="contact_support">지원팀에 문의</string>
+	<string name="start_over_text">사이트를 유지하되 현재 글과 페이지를 원하지 않는 경우 지원팀에서 글, 페이지, 미디어, 댓글을 삭제해드립니다.\n\n사이트와 URL은 활성 상태를 유지하지만 콘텐츠 생성을 처음부터 시작할 수 있게 됩니다. 현재 콘텐츠를 삭제하려면 지원팀에 문의해주세요.</string>
+	<string name="site_settings_start_over_hint">사이트 시작하기</string>
+	<string name="let_us_help">Let Us Help</string>
+	<string name="me_btn_app_settings">앱 설정</string>
+	<string name="start_over">시작하기</string>
+	<string name="editor_remove_failed_uploads">실패한 업로드 제거</string>
+	<string name="editor_toast_failed_uploads">일부 미디어 업로드에 실패했습니다. 이 상태의 글은 저장하거나 게시할 수\n 없습니다. 실패한 미디어를 모두 제거하시겠습니까?</string>
+	<string name="comments_empty_list_filtered_trashed">삭제된 댓글 없음</string>
+	<string name="site_settings_advanced_header">고급</string>
+	<string name="comments_empty_list_filtered_pending">대기중인 댓글 없음</string>
+	<string name="comments_empty_list_filtered_approved">승인한 댓글 없음</string>
+	<string name="button_done">완료</string>
+	<string name="button_skip">넘어가기</string>
+	<string name="site_timeout_error">시간이 초과되어 워드프레스 사이트에 접속할 수 없습니다.</string>
+	<string name="xmlrpc_malformed_response_error">연결할 수 없습니다. 워드프레스 설치 프로그램이 잘못된 XML-RPC 문서를 보냈습니다.</string>
+	<string name="xmlrpc_missing_method_error">연결할 수 없습니다. 필수 XML-RPC 함수가 서버에 없습니다.</string>
+	<string name="post_format_status">상태</string>
+	<string name="post_format_video">비디오</string>
+	<string name="align_none">없음</string>
+	<string name="align_left">왼쪽</string>
+	<string name="align_center">가운데</string>
+	<string name="align_right">오른쪽</string>
+	<string name="theme_free">무료</string>
+	<string name="theme_all">모두</string>
+	<string name="theme_premium">프리미엄</string>
+	<string name="post_format_chat">채팅</string>
+	<string name="post_format_gallery">갤러리</string>
+	<string name="post_format_image">이미지</string>
+	<string name="post_format_link">링크</string>
+	<string name="post_format_quote">인용</string>
+	<string name="post_format_standard">기본</string>
+	<string name="notif_events">워드프레스닷컴 강의 및 이벤트에 대한 정보(온라인 및 직접 만남).</string>
+	<string name="post_format_aside">추가 정보</string>
+	<string name="post_format_audio">오디오</string>
+	<string name="notif_surveys">워드프레스닷컴 리서치 및 설문 조사에 참여할 기회.</string>
+	<string name="notif_tips">워드프레스닷컴을 최대한 활용하기 위한 팁.</string>
+	<string name="notif_community">커뮤니티</string>
+	<string name="replies_to_my_comments">내 댓글에 대한 답글</string>
+	<string name="notif_suggestions">제안</string>
+	<string name="notif_research">리서치</string>
+	<string name="site_achievements">사이트 작성 글</string>
+	<string name="username_mentions">사용자명 멘션</string>
+	<string name="likes_on_my_posts">내 글의 좋아요</string>
+	<string name="site_follows">사이트 팔로우</string>
+	<string name="likes_on_my_comments">내 댓글의 좋아요</string>
+	<string name="comments_on_my_site">내 사이트의 댓글</string>
+	<string name="site_settings_list_editor_summary_other">%d개 항목</string>
+	<string name="site_settings_list_editor_summary_one">1개의 항목</string>
+	<string name="approve_auto_if_previously_approved">알려진 사용자의 댓글</string>
+	<string name="approve_auto">모든 사용자</string>
+	<string name="approve_manual">댓글 없음</string>
+	<string name="site_settings_paging_summary_other">페이지당 댓글 %d개</string>
+	<string name="site_settings_paging_summary_one">페이지당 댓글 1개</string>
+	<string name="site_settings_multiple_links_summary_other">링크가 %d개를 넘는 경우 승인 필요</string>
+	<string name="site_settings_multiple_links_summary_one">링크가 1개를 넘는 경우 승인 필요</string>
+	<string name="site_settings_multiple_links_summary_zero">링크가 0개를 넘는 경우 승인 필요</string>
+	<string name="detail_approve_auto">모든 사람의 댓글을 자동으로 승인합니다.</string>
+	<string name="detail_approve_auto_if_previously_approved">사용자가 이전에 댓글을 승인한 경우 자동으로 승인합니다.</string>
+	<string name="detail_approve_manual">모든 사람의 댓글에 수동 승인이 필요합니다.</string>
+	<string name="filter_trashed_posts">삭제됨</string>
+	<string name="days_quantity_one">1일</string>
+	<string name="days_quantity_other">%d일</string>
+	<string name="filter_published_posts">발행됨</string>
+	<string name="filter_draft_posts">임시글</string>
+	<string name="filter_scheduled_posts">예약됨</string>
+	<string name="pending_email_change_snackbar">새 주소를 확인하려면 %1$s(으)로 전송된 이메일에 있는 확인 링크를 클릭하세요.</string>
+	<string name="primary_site">기본 사이트</string>
+	<string name="web_address">웹 주소</string>
+	<string name="editor_toast_uploading_please_wait">미디어를 업로드 중입니다. 완료될 때까지 기다려 주세요.</string>
+	<string name="error_refresh_comments_showing_older">지금은 댓글을 새로 고칠 수 없습니다. 이전 댓글을 표시 중입니다.</string>
+	<string name="editor_post_settings_set_featured_image">특성 이미지 설정</string>
+	<string name="editor_post_settings_featured_image">특성 이미지</string>
+	<string name="new_editor_promo_desc">Android용 워드프레스 앱에 멋진\n 편집기. 새 글을 작성하면서 사용해 보세요.</string>
+	<string name="new_editor_promo_title">완전히 새로운 편집기</string>
+	<string name="new_editor_promo_button_label">네, 확인했습니다.</string>
+	<string name="visual_editor_enabled">비주얼 편집기 사용 설정됨</string>
+	<string name="editor_content_placeholder">여기서 스토리 공유…</string>
+	<string name="editor_page_title_placeholder">페이지 제목</string>
+	<string name="editor_post_title_placeholder">글 제목</string>
+	<string name="email_address">이메일 주소</string>
+	<string name="preference_show_visual_editor">비주얼 편집기 표시</string>
+	<string name="dlg_sure_to_delete_comments">이 댓글을 영구 삭제하시겠습니까?</string>
+	<string name="preference_editor">편집자</string>
+	<string name="dlg_sure_to_delete_comment">이 댓글을 영구 삭제하시겠습니까?</string>
+	<string name="mnu_comment_delete_permanently">삭제</string>
+	<string name="comment_deleted_permanently">댓글 삭제됨</string>
+	<string name="mnu_comment_untrash">복원</string>
+	<string name="comments_empty_list_filtered_spam">스팸 댓글 없음</string>
+	<string name="could_not_load_page">페이지를 로드할 수 없음</string>
+	<string name="comment_status_all">모두</string>
+	<string name="interface_language">인터페이스 언어</string>
+	<string name="off">끔</string>
+	<string name="about_the_app">앱 정보</string>
+	<string name="error_post_account_settings">계정 설정을 저장할 수 없습니다.</string>
 	<string name="error_post_my_profile">프로필을 저장할 수 없습니다.</string>
 	<string name="error_fetch_account_settings">계정 설정을 검색할 수 없습니다.</string>
 	<string name="error_fetch_my_profile">프로필을 검색할 수 없습니다.</string>
@@ -15,6 +231,9 @@
 	<string name="add_category">카테고리 추가</string>
 	<string name="disabled">해제</string>
 	<string name="site_settings_image_original_size">원래 크기</string>
+	<string name="privacy_private">사이트가 본인과 본인이 승인한 사용자에게만 공개됩니다.</string>
+	<string name="privacy_public_not_indexed">사이트가 모든 사람에게 공개되지만 검색 엔진에 사이트가 검색되지 않도록 요청합니다.</string>
+	<string name="privacy_public">사이트가 모든 사람에게 공개되며 검색 엔진이 검색할 수 있습니다.</string>
 	<string name="about_me_hint">사용자에 대한 몇 가지 정보...</string>
 	<string name="public_display_name_hint">대화명을 설정하지 않을 경우 기본적으로 사용자명으로 설정됩니다.</string>
 	<string name="about_me">내 소개</string>
@@ -279,7 +498,7 @@
 	<string name="me_connect_to_wordpress_com">워드프레스닷컴 연결하기</string>
 	<string name="site_picker_cant_hide_current_site">"%s"은(는) 현재 사이트이기 때문에 숨길 수 없습니다.</string>
 	<string name="me_btn_support">도움 및 지원</string>
-	<string name="me_btn_settings">계정 설정</string>
+	<string name="account_settings">계정 설정</string>
 	<string name="site_picker_create_dotcom">워드프레스닷컴 사이트 생성</string>
 	<string name="site_picker_edit_visibility">사이트 표시/숨기기</string>
 	<string name="site_picker_add_site">사이트 추가</string>
@@ -292,7 +511,6 @@
 	<string name="my_site_header_look_and_feel">모양과 느낌</string>
 	<string name="my_site_btn_site_settings">설정</string>
 	<string name="my_site_btn_blog_posts">블로그 글</string>
-	<string name="my_site_header_admin">관리자</string>
 	<string name="reader_label_new_posts_subtitle">눌러서 표시</string>
 	<string name="my_site_header_configuration">설정</string>
 	<string name="notifications_account_required">알림을 보려면 워드프레스닷컴에 로그인</string>
@@ -487,11 +705,9 @@
 	<string name="hs__invalid_email_error">유효한 이메일 주소를 입력하세요</string>
 	<string name="add_location">위치 추가</string>
 	<string name="current_location">현재 위치</string>
-	<string name="your_signature">당신의 서명:</string>
 	<string name="search_location">검색</string>
 	<string name="edit_location">편집</string>
 	<string name="search_current_location">위치 지정</string>
-	<string name="preference_privacy">프라이버시</string>
 	<string name="preference_send_usage_stats">통계 보내기</string>
 	<string name="preference_send_usage_stats_summary">사용 통계를 자동으로 보내면 안드로이드용 워드프레스를 개선하는데 도움이 됩니다.</string>
 	<string name="update_verb">업데이트</string>
@@ -522,8 +738,6 @@
 	<string name="mnu_comment_unspam">스팸이 아닙니다.</string>
 	<string name="error_refresh_posts">게시물을 다시로드 할 수 없습니다.</string>
 	<string name="error_refresh_comments">댓글을 다시로드 할 수 없습니다 .</string>
-	<string name="auto_sharing_preference_reset">자동 공유 설정을 재설정했습니다.</string>
-	<string name="auto_sharing_preference_reset_caused_by_error">이전에 선택한 블로그는 현재 비공개로 되어 있습니다.</string>
 	<string name="error_refresh_pages">고정 페이지를 다시로드 할 수 없습니다.</string>
 	<string name="error_refresh_notifications">알림을 다시로드 할 수 없습니다.</string>
 	<string name="username_or_password_incorrect">입력된 사용자 이름이나 암호가 잘못되었습니다.</string>
@@ -573,7 +787,6 @@
 	<string name="out_of_memory">장치 메모리가 부족합니다.</string>
 	<string name="no_site_error">WordPress 사이트에 연결할 수 없습니다 . 잠시 후 다시 시도해 주십시오.</string>
 	<string name="no_network_message">사용 가능한 네트워크가 없습니다. 네트워크에 연결하고 다시 시도하십시오 .</string>
-	<string name="invalid_url_message">입력한 블로그 URL이 올바른지 확인하십시오.</string>
 	<string name="sdcard_message">미디어를 업로드하려면 SD카드가 필요합니다.</string>
 	<string name="no_account">WordPress 계정을 찾을 수 없습니다. 계정을 추가하고 다시 시도하십시오.</string>
 	<string name="cat_name_required">카테고리 이름은 필수 항목입니다.</string>
@@ -583,6 +796,7 @@
 	<string name="error_moderate_comment">진행중에 에러가 발생했습니다.</string>
 	<string name="could_not_remove_account">사이트를 제거할 수 없습니다.</string>
 	<string name="error_refresh_stats">통계를 다시 로드 할 수 없습니다.</string>
+	<string name="invalid_url_message">입력한 URL이 올바른지 확인합니다.</string>
 	<string name="media_error_no_permission">미디어 라이브러리를 볼 수 있는 권한이 없습니다</string>
 	<string name="share_action_media">미디어 라이브러리</string>
 	<string name="page_settings">페이지 설정</string>
@@ -591,7 +805,6 @@
 	<string name="add_account_blog_url">블로그 주소</string>
 	<string name="learn_more">추가 정보</string>
 	<string name="site_address">인스톨 형 WordPress의 주소(URL)</string>
-	<string name="username_email">사용자 이름 또는 이메일</string>
 	<string name="cannot_delete_multi_media_items">일부 미디어를 다시로드 할 수 없습니다. 나중에 다시 시도하십시오.</string>
 	<string name="http_authorization_required">인증이 필요합니다</string>
 	<string name="reader_title_applog">응용 프로그램 로그</string>
@@ -686,6 +899,7 @@
 	<string name="blog_removed_successfully">사이트가 제거되었습니다.</string>
 	<string name="remove_account">사이트 제거</string>
 	<string name="notifications_empty_all">알림이 없습니다.</string>
+	<string name="invalid_site_url_message">입력한 사이트 URL이 올바른지 확인합니다.</string>
 	<string name="deleting_page">페이지 삭제</string>
 	<string name="deleting_post">글 삭제</string>
 	<string name="share_url_post">글 공유</string>
@@ -699,11 +913,8 @@
 	<string name="download">미디어를 다운로드 중</string>
 	<string name="reader_label_reply">회신</string>
 	<string name="video">동영상</string>
-	<string name="share_preference_title">WordPress 공유</string>
 	<string name="reader_toast_err_get_comment">이 코멘트를 읽을 수 없습니다</string>
 	<string name="cant_share_no_visible_blog">공개 블로그가 없기 때문에 WordPress에 공유 할 수 없습니다</string>
-	<string name="reset_auto_share_preference">자동 공유 설정을 재설정</string>
-	<string name="always_use_these_settings_to_share">항상 이 설정을 사용</string>
 	<string name="reader_likes_you_and_multi">당신에게 %d명이 "좋아요"를 하고 있습니다.</string>
 	<string name="reader_likes_multi">%d명이 "좋아요"를 눌렀습니다.</string>
 	<string name="pick_photo">이미지를 선택</string>
@@ -751,6 +962,7 @@
 	<string name="reader_empty_followed_tags">태그를 팔로우하지 않습니다.</string>
 	<string name="create_account_wpcom">WordPress.com에서 계정 만들기</string>
 	<string name="reader_hint_comment_on_comment">답변 달기</string>
+	<string name="button_next">다음</string>
 	<string name="themes">테마</string>
 	<string name="images">이미지</string>
 	<string name="media_gallery_image_order_random">랜덤</string>
@@ -804,14 +1016,13 @@
 	<string name="passcode_enter_passcode">PIN 번호를 입력</string>
 	<string name="passcode_manage">PIN 번호 잠금 관리</string>
 	<string name="stats_view_visitors_and_views">방문자수 · 페이지 뷰</string>
-	<string name="media_no_video_title">VideoPress 를 사용할 수 없습니다</string>
 	<string name="post_excerpt">발췌</string>
 	<string name="theme_set_success">테마 설정을 완료 했습니다.</string>
 	<string name="share_action_title">추가 정보</string>
 	<string name="theme_auth_error_title">테마 정보를 가져오는데 실패했습니다</string>
-	<string name="media_no_video_message">동영상을 업로드하려면 VideoPress 업그레이드를 추가 하십시오.</string>
 	<string name="custom_date">사용자 지정 날짜</string>
 	<string name="upload">업로드</string>
+	<string name="discard">제거</string>
 	<string name="sign_in">로그인</string>
 	<string name="notifications">알림</string>
 	<string name="follows">팔로우</string>
@@ -819,8 +1030,6 @@
 	<string name="more_notifications">%d개.</string>
 	<string name="new_notifications">%d개의 새로운 알림</string>
 	<string name="loading">로드 중입니다...</string>
-	<string name="post_signature">리뷰 서명</string>
-	<string name="add_tagline">새 게시물에 서명을 추가</string>
 	<string name="httpuser">HTTP 사용자 이름</string>
 	<string name="httppassword">HTTP 암호</string>
 	<string name="error_media_upload">미디어를 업로드할때 오류가 발생했습니다</string>
@@ -847,15 +1056,15 @@
 	<string name="upload_scaled_image">업로드 하여 크기를 조정 한 이미지 링크</string>
 	<string name="scheduled">예약</string>
 	<string name="link_enter_url">URL</string>
-	<string name="posted_from">WordPress for Android에서 작성</string>
+	<string name="uploading">업로드 중...</string>
 	<string name="version">버전</string>
 	<string name="tos">이용 약관</string>
 	<string name="app_title">WordPress for Android</string>
-	<string name="about">소개</string>
 	<string name="max_thumbnail_px_width">기본 이미지 너비</string>
 	<string name="image_alignment">배치</string>
 	<string name="refresh">다시 로드</string>
 	<string name="untitled">제목 미설정</string>
+	<string name="edit">편집</string>
 	<string name="post_id">작성</string>
 	<string name="page_id">고정 페이지</string>
 	<string name="post_password">암호(옵션)</string>
@@ -873,9 +1082,10 @@
 	<string name="title">제목</string>
 	<string name="categories">카테고리</string>
 	<string name="tags_separate_with_commas">태그(쉼표로 구분)</string>
-	<string name="notification_sound">알림음을 재생</string>
+	<string name="dlg_deleting_comments">댓글 삭제 중</string>
 	<string name="notification_blink">알림빛을 깜빡임</string>
 	<string name="notification_vibrate">바이브</string>
+	<string name="notification_sound">알림 소리</string>
 	<string name="status">상태</string>
 	<string name="location">위치</string>
 	<string name="sdcard_title">SD카드가 필요합니다</string>
@@ -896,70 +1106,4 @@
 	<string name="on">선택</string>
 	<string name="category_refresh_error">카테고리의 다시 읽기 오류</string>
 	<string name="notification_settings">알림 설정</string>
-	<string-array name="alignment_array">
-		<item>없음</item>
-		<item>왼쪽</item>
-		<item>중앙</item>
-		<item>오른쪽</item>
-	</string-array>
-	<string-array name="notifications_blog_settings">
-		<item>내 사이트의 댓글</item>
-		<item>내 댓글의 좋아요</item>
-		<item>내 게시글의 좋아요</item>
-		<item>사이트 팔로우</item>
-		<item>사이트 작성 글</item>
-		<item>사용자명 멘션</item>
-	</string-array>
-	<string-array name="notifications_other_settings">
-		<item>내 댓글에 대한 답글</item>
-		<item>내 댓글의 좋아요</item>
-	</string-array>
-	<string-array name="notifications_wpcom_settings">
-		<item>제안</item>
-		<item>리서치</item>
-		<item>커뮤니티</item>
-	</string-array>
-	<string-array name="notifications_wpcom_settings_summaries">
-		<item>워드프레스닷컴을 최대한 활용하기 위한 팁.</item>
-		<item>워드프레스닷컴 리서치 및 설문 조사에 참여할 기회.</item>
-		<item>워드프레스닷컴 강의 및 이벤트에 대한 정보(온라인 및 직접 만남).</item>
-	</string-array>
-	<string-array name="post_filters_array">
-		<item>발행됨</item>
-		<item>임시글</item>
-		<item>예약됨</item>
-		<item>삭제됨</item>
-	</string-array>
-	<string-array name="post_formats_array">
-		<item>곁에</item>
-		<item>음성</item>
-		<item>채팅</item>
-		<item>갤러리</item>
-		<item>이미지</item>
-		<item>링크</item>
-		<item>인용</item>
-		<item>표준</item>
-		<item>상태</item>
-		<item>동영상</item>
-	</string-array>
-	<string-array name="privacy_details">
-		<item>사이트가 모든 사람에게 공개되며 검색 엔진이 검색할 수 있습니다.</item>
-		<item>사이트가 모든 사람에게 공개되지만 검색 엔진에 사이트가 검색되지 않도록 요청합니다.</item>
-		<item>사이트가 본인과 본인이 승인한 사용자에게만 공개됩니다.</item>
-	</string-array>
-	<string-array name="site_settings_auto_approve_details">
-		<item>모든 사람의 댓글에 대한 수동 승인이 필요합니다.</item>
-		<item>사용자가 이전에 댓글을 승인한 경우 자동으로 승인합니다.</item>
-		<item>모든 사람의 댓글을 자동으로 승인합니다.</item>
-	</string-array>
-	<string-array name="site_settings_auto_approve_entries">
-		<item>댓글 없음</item>
-		<item>알려진 사용자의 댓글</item>
-		<item>모든 사용자</item>
-	</string-array>
-	<string-array name="themes_filter_array">
-		<item>무료</item>
-		<item>모두</item>
-		<item>프리미엄</item>
-	</string-array>
 </resources>

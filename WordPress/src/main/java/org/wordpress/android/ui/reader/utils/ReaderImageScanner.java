@@ -2,6 +2,7 @@ package org.wordpress.android.ui.reader.utils;
 
 import android.text.TextUtils;
 
+import org.wordpress.android.ui.reader.ReaderConstants;
 import org.wordpress.android.ui.reader.models.ReaderImageList;
 
 import java.util.regex.Matcher;
@@ -31,7 +32,6 @@ public class ReaderImageScanner {
         }
 
         if (!mContentContainsImages) {
-            listener.onScanCompleted();
             return;
         }
 
@@ -40,17 +40,22 @@ public class ReaderImageScanner {
             String imageTag = mContent.substring(imgMatcher.start(), imgMatcher.end());
             String imageUrl = ReaderHtmlUtils.getSrcAttrValue(imageTag);
             if (!TextUtils.isEmpty(imageUrl)) {
-                listener.onTagFound(imageTag, imageUrl, imgMatcher.start(), imgMatcher.end());
+                listener.onTagFound(imageTag, imageUrl);
             }
         }
-
-        listener.onScanCompleted();
     }
 
     /*
-     * returns a list of all images in the content
+     * returns a list of all image URLs in the content above a certain width - pass zero
+     * for the min to include all images regardless of size
      */
     public ReaderImageList getImageList() {
+        return getImageList(0);
+    }
+    public ReaderImageList getGalleryImageList() {
+        return getImageList(ReaderConstants.MIN_GALLERY_IMAGE_WIDTH);
+    }
+    public ReaderImageList getImageList(int minImageWidth) {
         ReaderImageList imageList = new ReaderImageList(mIsPrivate);
 
         if (!mContentContainsImages) {
@@ -60,7 +65,16 @@ public class ReaderImageScanner {
         Matcher imgMatcher = IMG_TAG_PATTERN.matcher(mContent);
         while (imgMatcher.find()) {
             String imgTag = mContent.substring(imgMatcher.start(), imgMatcher.end());
-            imageList.addImageUrl(ReaderHtmlUtils.getSrcAttrValue(imgTag));
+            String imageUrl = ReaderHtmlUtils.getSrcAttrValue(imgTag);
+
+            if (minImageWidth == 0) {
+                imageList.addImageUrl(imageUrl);
+            } else {
+                int width = Math.max(ReaderHtmlUtils.getWidthAttrValue(imgTag), ReaderHtmlUtils.getIntQueryParam(imageUrl, "w"));
+                if (width >= minImageWidth) {
+                    imageList.addImageUrl(imageUrl);
+                }
+            }
         }
 
         return imageList;

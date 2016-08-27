@@ -1,6 +1,5 @@
 package org.wordpress.android.ui.plans;
 
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 
@@ -11,50 +10,11 @@ import org.wordpress.android.ui.plans.models.Feature;
 import org.wordpress.android.ui.plans.models.Plan;
 import org.wordpress.android.ui.prefs.AppPrefs;
 import org.wordpress.android.util.AppLog;
-import org.wordpress.android.util.FormatUtils;
 import org.wordpress.android.util.PhotonUtils;
 
-import java.util.Currency;
 import java.util.HashMap;
-import java.util.Hashtable;
-import java.util.Locale;
 
 public class PlansUtils {
-
-    private static String deviceCurrencyCode; // ISO 4217 currency code.
-    private static String deviceCurrencySymbol;
-
-    private static final String DOLLAR_SYMBOL = "$";
-    private static final String DOLLAR_ISO4217_CODE = "USD";
-
-    /**
-     * Returns the price for the passed plan formatted for the user's locale, defaults
-     * to USD if user's locale isn't matched
-     *
-     * TODO: endpoint will be updated to include the formatted price, so this method is temporary
-     */
-    public static String getPlanDisplayPrice(@NonNull Plan plan) {
-        // lookup currency code/symbol on first use
-        if (deviceCurrencyCode == null) {
-            Currency currency = Currency.getInstance(Locale.getDefault());
-            deviceCurrencyCode = currency.getCurrencyCode();
-            deviceCurrencySymbol = currency.getSymbol(Locale.getDefault());
-        }
-
-        String currencySymbol;
-        int priceValue;
-        Hashtable<String, Integer> pricesMap = plan.getPrices();
-        if (pricesMap.containsKey(deviceCurrencyCode)) {
-            currencySymbol = deviceCurrencySymbol;
-            priceValue = pricesMap.get(deviceCurrencyCode);
-            return currencySymbol + FormatUtils.formatInt(priceValue);
-        } else {
-            // locale not found, default to USD
-            currencySymbol = DOLLAR_SYMBOL;
-            priceValue = pricesMap.get(DOLLAR_ISO4217_CODE);
-            return currencySymbol + FormatUtils.formatInt(priceValue) + " " + DOLLAR_ISO4217_CODE;
-        }
-    }
 
     @Nullable
     public static HashMap<String, Feature> getFeatures() {
@@ -92,6 +52,16 @@ public class PlansUtils {
             return null;
         }
         return PhotonUtils.getPhotonImageUrl(plan.getIconUrl(), iconSize, iconSize);
+    }
+
+    /**
+     * Weather the plan ID is a free plan.
+     *
+     * @param planID - The plan ID
+     * @return boolean - true if the current blog is on a free plan.
+     */
+    private static boolean isFreePlan(long planID) {
+        return planID == PlansConstants.JETPACK_FREE_PLAN_ID || planID == PlansConstants.FREE_PLAN_ID;
     }
 
     /**

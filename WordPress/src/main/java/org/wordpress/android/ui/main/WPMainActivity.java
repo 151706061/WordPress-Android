@@ -1,7 +1,6 @@
 package org.wordpress.android.ui.main;
 
 import android.animation.ObjectAnimator;
-import android.app.Activity;
 import android.app.DialogFragment;
 import android.app.Fragment;
 import android.content.Intent;
@@ -11,6 +10,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
@@ -32,13 +32,13 @@ import org.wordpress.android.networking.SelfSignedSSLCertsManager;
 import org.wordpress.android.ui.ActivityId;
 import org.wordpress.android.ui.ActivityLauncher;
 import org.wordpress.android.ui.RequestCodes;
+import org.wordpress.android.ui.accounts.login.MagicLinkSignInActivity;
 import org.wordpress.android.ui.notifications.NotificationEvents;
 import org.wordpress.android.ui.notifications.NotificationsListFragment;
 import org.wordpress.android.ui.notifications.utils.NotificationsUtils;
 import org.wordpress.android.ui.notifications.utils.SimperiumUtils;
 import org.wordpress.android.ui.posts.PromoDialog;
 import org.wordpress.android.ui.prefs.AppPrefs;
-import org.wordpress.android.ui.prefs.AccountSettingsFragment;
 import org.wordpress.android.ui.prefs.AppSettingsFragment;
 import org.wordpress.android.ui.prefs.SiteSettingsFragment;
 import org.wordpress.android.ui.reader.ReaderPostListFragment;
@@ -57,15 +57,12 @@ import org.wordpress.android.util.StringUtils;
 import org.wordpress.android.util.ToastUtils;
 import org.wordpress.android.widgets.WPViewPager;
 
-import java.util.List;
-import java.util.Map;
-
 import de.greenrobot.event.EventBus;
 
 /**
  * Main activity which hosts sites, reader, me and notifications tabs
  */
-public class WPMainActivity extends Activity implements Bucket.Listener<Note> {
+public class WPMainActivity extends AppCompatActivity implements Bucket.Listener<Note> {
 
     private WPViewPager mViewPager;
     private WPMainTabLayout mTabLayout;
@@ -81,6 +78,14 @@ public class WPMainActivity extends Activity implements Bucket.Listener<Note> {
      */
     public interface OnScrollToTopListener {
         void onScrollToTop();
+    }
+
+    /*
+     * tab fragments implement this and return true if the fragment handles the back button
+     * and doesn't want the activity to handle it as well
+     */
+    public interface OnActivityBackPressedListener {
+        boolean onActivityBackPressed();
     }
 
     @Override
@@ -192,6 +197,7 @@ public class WPMainActivity extends Activity implements Bucket.Listener<Note> {
                     if (mTabAdapter.isValidPosition(position) && position != mViewPager.getCurrentItem()) {
                         mViewPager.setCurrentItem(position);
                     }
+                    checkMagicLinkSignIn();
                 }
             } else {
                 ActivityLauncher.showSignInForResult(this);
@@ -264,7 +270,7 @@ public class WPMainActivity extends Activity implements Bucket.Listener<Note> {
             String noteId = getIntent().getStringExtra(NotificationsListFragment.NOTE_ID_EXTRA);
             if (!TextUtils.isEmpty(noteId)) {
                 GCMMessageService.bumpPushNotificationsTappedAnalytics(noteId);
-                NotificationsListFragment.openNote(this, noteId, shouldShowKeyboard, false);
+                NotificationsListFragment.openNote(this, noteId, shouldShowKeyboard);
             }
         } else {
           // mark all tapped here
@@ -314,6 +320,32 @@ public class WPMainActivity extends Activity implements Bucket.Listener<Note> {
         ProfilingUtils.split("WPMainActivity.onResume");
         ProfilingUtils.dump();
         ProfilingUtils.stop();
+    }
+
+    @Override
+    public void onBackPressed() {
+        // let the fragment handle the back button if it implements our OnParentBackPressedListener
+        Fragment fragment = getActiveFragment();
+        if (fragment instanceof OnActivityBackPressedListener) {
+            boolean handled = ((OnActivityBackPressedListener) fragment).onActivityBackPressed();
+            if (handled) {
+                return;
+            }
+        }
+        super.onBackPressed();
+    }
+
+    private Fragment getActiveFragment() {
+        return mTabAdapter.getFragment(mViewPager.getCurrentItem());
+    }
+
+    private void checkMagicLinkSignIn() {
+        if (getIntent() !=  null) {
+            if (getIntent().getBooleanExtra(MagicLinkSignInActivity.MAGIC_LOGIN, false)) {
+                AnalyticsTracker.track(AnalyticsTracker.Stat.LOGIN_MAGIC_LINK_SUCCEEDED);
+                startWithNewAccount();
+            }
+        }
     }
 
     private void trackLastVisibleTab(int position, boolean trackAnalytics) {
@@ -408,8 +440,7 @@ public class WPMainActivity extends Activity implements Bucket.Listener<Note> {
             case RequestCodes.ADD_ACCOUNT:
                 if (resultCode == RESULT_OK) {
                     // Register for Cloud messaging
-                    startService(new Intent(this, GCMRegistrationIntentService.class));
-                    resetFragments();
+                    startWithNewAccount();
                 } else if (!AccountHelper.isSignedIn()) {
                     // can't do anything if user isn't signed in (either to wp.com or self-hosted)
                     finish();
@@ -444,6 +475,11 @@ public class WPMainActivity extends Activity implements Bucket.Listener<Note> {
                 }
                 break;
         }
+    }
+
+    private void startWithNewAccount() {
+        startService(new Intent(this, GCMRegistrationIntentService.class));
+        resetFragments();
     }
 
     /*

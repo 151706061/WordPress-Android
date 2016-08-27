@@ -32,12 +32,15 @@ public class JsCallbackReceiver {
     private static final String CALLBACK_VIDEO_REPLACED = "callback-video-replaced";
     private static final String CALLBACK_IMAGE_TAP = "callback-image-tap";
     private static final String CALLBACK_LINK_TAP = "callback-link-tap";
+    private static final String CALLBACK_MEDIA_REMOVED = "callback-media-removed";
 
     private static final String CALLBACK_VIDEOPRESS_INFO_REQUEST = "callback-videopress-info-request";
 
     private static final String CALLBACK_LOG = "callback-log";
 
     private static final String CALLBACK_RESPONSE_STRING = "callback-response-string";
+
+    private static final String CALLBACK_ACTION_FINISHED = "callback-action-finished";
 
     private final OnJsEditorStateChangedListener mListener;
 
@@ -179,6 +182,13 @@ public class JsCallbackReceiver {
 
                 mListener.onLinkTapped(url, title);
                 break;
+            case CALLBACK_MEDIA_REMOVED:
+                AppLog.d(AppLog.T.EDITOR, "Media removed, " + params);
+                // Extract the media id from the callback string (stripping the 'id=' part of the callback string)
+                if (params.length() > 3) {
+                    mListener.onMediaRemoved(params.substring(3));
+                }
+                break;
             case CALLBACK_VIDEOPRESS_INFO_REQUEST:
                 // Extract the VideoPress id from the callback string (stripping the 'id=' part of the callback string)
                 if (params.length() > 3) {
@@ -203,7 +213,7 @@ public class JsCallbackReceiver {
                             responseIds.add("id");
                             responseIds.add("contents");
                             break;
-                        case "getSelectedText":
+                        case "getSelectedTextToLinkify":
                             responseIds.add("result");
                             break;
                         case "getFailedMedia":
@@ -215,6 +225,9 @@ public class JsCallbackReceiver {
                     responseDataSet = Utils.splitDelimitedString(params, JS_CALLBACK_DELIMITER);
                 }
                 mListener.onGetHtmlResponse(Utils.buildMapFromKeyValuePairs(responseDataSet));
+                break;
+            case CALLBACK_ACTION_FINISHED:
+                mListener.onActionFinished();
                 break;
             default:
                 AppLog.d(AppLog.T.EDITOR, "Unhandled callback: " + callbackId + ":" + params);

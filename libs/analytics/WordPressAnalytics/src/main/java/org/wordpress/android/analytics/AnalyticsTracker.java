@@ -40,6 +40,9 @@ public final class AnalyticsTracker {
         READER_TAG_LOADED,
         READER_TAG_PREVIEWED,
         READER_TAG_UNFOLLOWED,
+        READER_SEARCH_LOADED,
+        READER_SEARCH_PERFORMED,
+        READER_SEARCH_RESULT_TAPPED,
         STATS_ACCESSED,
         STATS_INSIGHTS_ACCESSED,
         STATS_PERIOD_DAYS_ACCESSED,
@@ -83,6 +86,17 @@ public final class AnalyticsTracker {
         EDITOR_TAPPED_UNLINK, // Visual editor only
         EDITOR_TAPPED_UNORDERED_LIST, // Visual editor only
         ME_ACCESSED,
+        ME_GRAVATAR_TAPPED,
+        ME_GRAVATAR_TOOLTIP_TAPPED,
+        ME_GRAVATAR_PERMISSIONS_INTERRUPTED,
+        ME_GRAVATAR_PERMISSIONS_DENIED,
+        ME_GRAVATAR_PERMISSIONS_ACCEPTED,
+        ME_GRAVATAR_SHOT_NEW,
+        ME_GRAVATAR_GALLERY_PICKED,
+        ME_GRAVATAR_CROPPED,
+        ME_GRAVATAR_UPLOADED,
+        ME_GRAVATAR_UPLOAD_UNSUCCESSFUL,
+        ME_GRAVATAR_UPLOAD_EXCEPTION,
         MY_SITE_ACCESSED,
         NOTIFICATIONS_ACCESSED,
         NOTIFICATIONS_OPENED_NOTIFICATION_DETAILS,
@@ -103,7 +117,10 @@ public final class AnalyticsTracker {
         OPENED_ACCOUNT_SETTINGS,
         OPENED_APP_SETTINGS,
         OPENED_MY_PROFILE,
+        OPENED_PEOPLE_MANAGEMENT,
+        OPENED_PERSON,
         CREATED_ACCOUNT,
+        CREATED_SITE,
         ACCOUNT_LOGOUT,
         SHARED_ITEM,
         ADDED_SELF_HOSTED_SITE,
@@ -111,12 +128,23 @@ public final class AnalyticsTracker {
         SIGNED_INTO_JETPACK,
         PERFORMED_JETPACK_SIGN_IN_FROM_STATS_SCREEN,
         STATS_SELECTED_INSTALL_JETPACK,
+        STATS_SELECTED_CONNECT_JETPACK,
         PUSH_NOTIFICATION_RECEIVED,
         PUSH_NOTIFICATION_TAPPED, // Same of opened
         SUPPORT_OPENED_HELPSHIFT_SCREEN,
         SUPPORT_SENT_REPLY_TO_SUPPORT_MESSAGE,
+        LOGIN_MAGIC_LINK_EXITED,
+        LOGIN_MAGIC_LINK_FAILED,
+        LOGIN_MAGIC_LINK_OPENED,
+        LOGIN_MAGIC_LINK_REQUESTED,
+        LOGIN_MAGIC_LINK_SUCCEEDED,
         LOGIN_FAILED,
         LOGIN_FAILED_TO_GUESS_XMLRPC,
+        LOGIN_INSERTED_INVALID_URL,
+        LOGIN_AUTOFILL_CREDENTIALS_FILLED,
+        LOGIN_AUTOFILL_CREDENTIALS_UPDATED,
+        PERSON_REMOVED,
+        PERSON_UPDATED,
         PUSH_AUTHENTICATION_APPROVED,
         PUSH_AUTHENTICATION_EXPIRED,
         PUSH_AUTHENTICATION_FAILED,
@@ -153,7 +181,8 @@ public final class AnalyticsTracker {
         SITE_SETTINGS_DELETE_SITE_PURCHASES_SHOW_CLICKED,
         SITE_SETTINGS_DELETE_SITE_REQUESTED,
         SITE_SETTINGS_DELETE_SITE_RESPONSE_OK,
-        SITE_SETTINGS_DELETE_SITE_RESPONSE_ERROR
+        SITE_SETTINGS_DELETE_SITE_RESPONSE_ERROR,
+        ABTEST_START
     }
 
     private static final List<Tracker> TRACKERS = new ArrayList<>();
@@ -231,11 +260,9 @@ public final class AnalyticsTracker {
         }
     }
 
-    public static void refreshMetadata(boolean isUserConnected, boolean isWordPressComUser, boolean isJetpackUser,
-                                       int sessionCount, int numBlogs, int versionCode, String username, String email) {
+    public static void refreshMetadata(AnalyticsMetadata metadata) {
         for (Tracker tracker : TRACKERS) {
-            tracker.refreshMetadata(isUserConnected, isWordPressComUser, isJetpackUser, sessionCount, numBlogs,
-                    versionCode, username, email);
+            tracker.refreshMetadata(metadata);
         }
     }
 }

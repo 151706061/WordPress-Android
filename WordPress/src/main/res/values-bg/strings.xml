@@ -1,5 +1,244 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+	<string name="person_remove_confirmation_title">Премахване на %1$s</string>
+	<string name="role">Роля</string>
+	<string name="people">Хора</string>
+	<string name="edit_user">Редактиране на потребител</string>
+	<string name="reader_empty_posts_in_custom_list">Няма нови публикации в сайтовете от този списък</string>
+	<string name="error_remove_user">Потребителят не може да бъде премахнат</string>
+	<string name="error_update_role">Грешка при обновяване на потребителската роля</string>
+	<string name="error_updating_gravatar">Грешка при обновяването на вашия аватар в Gravatar</string>
+	<string name="error_locating_image">Неуспешно откриване на изрязаното изображение</string>
+	<string name="error_refreshing_gravatar">Грешка при презареждането на вашия аватар в Gravatar</string>
+	<string name="error_cropping_image">Грешка при изрязване на изображението</string>
+	<string name="checking_email">Проверяване на имейл</string>
+	<string name="check_your_email">Проверете вашия имейл</string>
+	<string name="magic_link_unavailable_error_message">В момента не е налично. Въведете вашата парола</string>
+	<string name="logging_in">Влизане</string>
+	<string name="enter_your_password_instead">Въведете паролата си</string>
+	<string name="username_email">Имейл или потребителско име</string>
+	<string name="jetpack_not_connected">Разширението Jetpack не е свързано</string>
+	<string name="stats_insights_latest_post_no_title">(без заглавие)</string>
+	<string name="capture_or_pick_photo">Заснемане или избор на снимка</string>
+	<string name="plans_post_purchase_button_themes">Разглеждане на теми</string>
+	<string name="plans_post_purchase_button_video">Започване на нова публикация</string>
+	<string name="plans_post_purchase_title_video">Съживете публикациите си с видео</string>
+	<string name="plans_post_purchase_button_customize">Персонализиране на моя сайт</string>
+	<string name="plans_post_purchase_title_customize">Персонализиране на шрифтове и цветове</string>
+	<string name="plans_loading_error">Неуспешно зареждане на плановете</string>
+	<string name="plan">План</string>
+	<string name="plans">Планове</string>
+	<string name="export_your_content">Експортиране на вашето съдържание</string>
+	<string name="exporting_content_progress">Експортиране...</string>
+	<string name="delete_site_progress">Сайтът се изтрива...</string>
+	<string name="delete_site_hint">Изтриване на сайт</string>
+	<string name="delete_site_summary">Това действие е необратимо. При изтриване на вашия сайт, всички домейни, сътрудници и съдържание ще бъдат премахнати.</string>
+	<string name="export_site_hint">Експортиране на вашия сайт в XML файл</string>
+	<string name="are_you_sure">Сигурни ли сте?</string>
+	<string name="domain_removal_hint">Домейните, които няма да работят ако премахнете сайта си</string>
+	<string name="domain_removal_summary">Внимание! Изтриването на вашия сайт ще премахне и долупосочените домейни.</string>
+	<string name="primary_domain">Основен домейн</string>
+	<string name="domain_removal">Премахване на домейн</string>
+	<string name="error_deleting_site_summary">Възникна грешка при изтриване на вашия сайт. Свържете се с отдела по поддръжката, за да получите помощ.</string>
+	<string name="error_deleting_site">Грешка при изтриване на сайта</string>
+	<string name="site_settings_export_content_title">Експортиране на съдържание</string>
+	<string name="contact_support">Свързване с отдела по поддръжка</string>
+	<string name="confirm_delete_site">Потвърдете, че искате да изтриете сайта</string>
+	<string name="let_us_help">Нека помогнем</string>
+	<string name="site_settings_start_over_hint">Започване отначало</string>
+	<string name="start_over">Започване отначало</string>
+	<string name="me_btn_app_settings">Настройки на приложението</string>
+	<string name="editor_remove_failed_uploads">Премахване на неуспешно качените файлове</string>
+	<string name="comments_empty_list_filtered_trashed">Няма коментари в кошчето</string>
+	<string name="site_settings_advanced_header">Разширени</string>
+	<string name="comments_empty_list_filtered_pending">Няма коментари, очакващи одобрение</string>
+	<string name="comments_empty_list_filtered_approved">Няма одобрени коментари</string>
+	<string name="button_done">Готово</string>
+	<string name="button_skip">Пропускане</string>
+	<string name="site_timeout_error">Неуспешно свързване с WordPress поради изтекла връзка.</string>
+	<string name="xmlrpc_malformed_response_error">Грешка при свързването. Инсталацията на WordPress отговори с невалиден XML-RPC документ.</string>
+	<string name="xmlrpc_missing_method_error">Грешка при свързването. Задължителни XML-RPC методи липсват на този сървър.</string>
+	<string name="theme_all">Всички</string>
+	<string name="post_format_status">Състояние</string>
+	<string name="align_left">Вляво</string>
+	<string name="align_center">В средата</string>
+	<string name="post_format_video">Видео клип</string>
+	<string name="align_right">Вдясно</string>
+	<string name="theme_free">Безплатна</string>
+	<string name="post_format_quote">Цитат</string>
+	<string name="post_format_link">Връзка</string>
+	<string name="post_format_image">Изображение</string>
+	<string name="post_format_gallery">Галерия</string>
+	<string name="post_format_chat">Чат</string>
+	<string name="post_format_audio">Аудио</string>
+	<string name="post_format_aside">Бележка</string>
+	<string name="notif_community">Общност</string>
+	<string name="notif_research">Проучване</string>
+	<string name="notif_suggestions">Предложения</string>
+	<string name="replies_to_my_comments">Отговори на моите коментари</string>
+	<string name="likes_on_my_posts">Харесвания на моите публикации</string>
+	<string name="likes_on_my_comments">Харесвания на моите коментари</string>
+	<string name="comments_on_my_site">Коментари на моя сайт</string>
+	<string name="approve_auto">Всички потребители</string>
+	<string name="approve_auto_if_previously_approved">Коментари от познати потребители</string>
+	<string name="approve_manual">Няма коментари</string>
+	<string name="site_settings_paging_summary_other">%d коментара на страница</string>
+	<string name="site_settings_paging_summary_one">1 коментар на страница</string>
+	<string name="site_settings_multiple_links_summary_other">Задължително одобряване на поне %d връзки</string>
+	<string name="site_settings_multiple_links_summary_one">Задължително одобряване на поне 1 връзка</string>
+	<string name="site_settings_multiple_links_summary_zero">Задължително одобряване на повече от 0 връзки</string>
+	<string name="detail_approve_auto">Автоматично одобряване на всички коментари.</string>
+	<string name="detail_approve_auto_if_previously_approved">Автоматично одобряване ако потребителят има предишно одобрен коментар</string>
+	<string name="detail_approve_manual">Ръчно одобряване на всички коментари.</string>
+	<string name="days_quantity_other">%d дни</string>
+	<string name="days_quantity_one">1 ден</string>
+	<string name="filter_trashed_posts">В кошчето</string>
+	<string name="filter_draft_posts">Чернови</string>
+	<string name="filter_scheduled_posts">Планирани</string>
+	<string name="filter_published_posts">Публикувани</string>
+	<string name="primary_site">Основен сайт</string>
+	<string name="editor_post_settings_set_featured_image">Задаване на основно изображение</string>
+	<string name="editor_post_settings_featured_image">Основно изображение</string>
+	<string name="new_editor_promo_title">Чисто нов редактор</string>
+	<string name="new_editor_promo_button_label">Чудесно, благодаря!</string>
+	<string name="editor_content_placeholder">Споделете вашата история тук...</string>
+	<string name="editor_page_title_placeholder">Заглавие на страницата</string>
+	<string name="editor_post_title_placeholder">Заглавие на публикация</string>
+	<string name="email_address">Имейл адрес</string>
+	<string name="preference_show_visual_editor">Показване на визуалния редактор</string>
+	<string name="preference_editor">Редактор</string>
+	<string name="mnu_comment_delete_permanently">Изтриване</string>
+	<string name="comment_deleted_permanently">Коментарът е изтрит</string>
+	<string name="mnu_comment_untrash">Възстановяване</string>
+	<string name="comments_empty_list_filtered_spam">Няма спам коментари</string>
+	<string name="comment_status_all">Всички</string>
+	<string name="could_not_load_page">Неуспешно зареждане на страницата</string>
+	<string name="off">Изключено</string>
+	<string name="interface_language">Език на интерфейса</string>
+	<string name="about_the_app">За приложението</string>
+	<string name="error_post_account_settings">Грешка при запазване на вашите профилни настройки</string>
+	<string name="error_post_my_profile">Грешка при запазване на вашия профил</string>
+	<string name="error_fetch_account_settings">Грешка при зареждане на вашите профилни настройки</string>
+	<string name="error_fetch_my_profile">Грешка при зареждане на вашия профил</string>
+	<string name="stats_widget_promo_ok_btn_label">Разбрах</string>
+	<string name="search">Търсене</string>
+	<string name="remove">Премахване</string>
+	<string name="add_category">Добавяне на категория</string>
+	<string name="site_settings_image_original_size">Оригинален размер</string>
+	<string name="privacy_private">Вашият сайт е видим за вас и одобрените от вас потребители</string>
+	<string name="privacy_public">Вашият сайт е видим от всички и може да бъде индексиран от търсачките</string>
+	<string name="about_me_hint">Няколко думи за вас...</string>
+	<string name="about_me">За мен</string>
+	<string name="my_profile">Моят профил</string>
+	<string name="last_name">Фамилия</string>
+	<string name="first_name">Собствено име</string>
+	<string name="site_privacy_public_desc">Позволяване на търсещите машини да индексират сайта</string>
+	<string name="site_privacy_hidden_desc">Не позволявайте на търсещите машини да индексират този сайт</string>
+	<string name="error_post_remote_site_settings">Грешка при запазване на информацията за сайта</string>
+	<string name="error_fetch_remote_site_settings">Грешка при зареждане на информацията за сайта</string>
+	<string name="site_settings_unsupported_version_error">Тази версия на WordPress не се поддържа</string>
+	<string name="site_settings_close_after_dialog_switch_text">Автоматично затваряне</string>
+	<string name="site_settings_close_after_dialog_description">Автоматично затваряне на коментарите на публикациите.</string>
+	<string name="site_settings_paging_dialog_header">Коментари на страница</string>
+	<string name="site_settings_list_editor_input_hint">Въведете дума или фраза</string>
+	<string name="site_settings_learn_more_caption">Можете да презаписвате тези настройки за отделните публикации.</string>
+	<string name="site_settings_rp_preview2_site">в "Приложения"</string>
+	<string name="site_settings_rp_show_images_title">Показване на изображения</string>
+	<string name="site_settings_rp_switch_summary">Показва подобно съдържание от вашия сайт под вашите публикации.</string>
+	<string name="site_settings_rp_switch_title">Показване на подобни публикации</string>
+	<string name="site_settings_delete_site_hint">Премахва данните за вашите сайтове от приложението</string>
+	<string name="site_settings_whitelist_hint">Авторът на коментара трябва да има поне един одобрен коментар</string>
+	<string name="site_settings_user_account_required_hint">Потребителите трябва да са регистрирани и влезли за да коментират</string>
+	<string name="site_settings_identity_required_hint">Авторът на коментара трябва да попълни своите име и имейл</string>
+	<string name="site_settings_manual_approval_hint">Коментарите трябва да бъдат ръчно одобрявани</string>
+	<string name="site_settings_sort_by_hint">Определя реда на извеждане на коментарите</string>
+	<string name="site_settings_close_after_hint">Изключване на коментарите след посоченото време</string>
+	<string name="site_settings_allow_comments_hint">Позволяване коментарите да бъдат четени</string>
+	<string name="site_settings_discussion_hint">Разглеждане и промяна на настройките за коментари на вашите сайтове</string>
+	<string name="site_settings_more_hint">Разглеждане на всички настройки за коментарите</string>
+	<string name="site_settings_format_hint">Задава нов формат на публикацията</string>
+	<string name="site_settings_category_hint">Задава нова категория на публикацията</string>
+	<string name="site_settings_location_hint">Автоматично добавяне на данни за местоположение към вашите публикации</string>
+	<string name="site_settings_password_hint">Промяна на вашата парола</string>
+	<string name="site_settings_username_hint">Текущ потребителски профил</string>
+	<string name="site_settings_privacy_hint">Контролира кой може да вижда вашия сайт</string>
+	<string name="site_settings_address_hint">В момента не можете да променяте вашия адрес</string>
+	<string name="site_settings_tagline_hint">Кратък текст или привлекателна фраза, описваща вашия блог</string>
+	<string name="site_settings_whitelist_known_summary">Коментари от познати потребители</string>
+	<string name="site_settings_whitelist_all_summary">Коментари от всички потребители</string>
+	<string name="site_settings_threading_summary">%d нива</string>
+	<string name="site_settings_privacy_private_summary">Частен</string>
+	<string name="site_settings_privacy_hidden_summary">Скрит</string>
+	<string name="site_settings_delete_site_title">Изтриване на сайт</string>
+	<string name="site_settings_privacy_public_summary">Публичен</string>
+	<string name="site_settings_multiple_links_title">Връзки в коментарите</string>
+	<string name="site_settings_whitelist_title">Автоматично одобряване</string>
+	<string name="site_settings_sort_by_title">Сортиране по</string>
+	<string name="site_settings_account_required_title">Потребителите трябва да са влезли</string>
+	<string name="site_settings_receive_pingbacks_title">Получаване на pingbacks</string>
+	<string name="site_settings_send_pingbacks_title">Изпращане на pingbacks</string>
+	<string name="site_settings_allow_comments_title">Включване на коментарите</string>
+	<string name="site_settings_default_format_title">Формат по подразбиране</string>
+	<string name="site_settings_default_category_title">Категория по подразбиране</string>
+	<string name="site_settings_location_title">Включване на местоположение</string>
+	<string name="site_settings_address_title">Адрес</string>
+	<string name="site_settings_tagline_title">Кратко описание</string>
+	<string name="site_settings_title_title">Заглавие на сайта</string>
+	<string name="site_settings_this_device_header">Това устройство</string>
+	<string name="site_settings_account_header">Профил</string>
+	<string name="newest_first">Първо най-новите</string>
+	<string name="site_settings_general_header">Общи</string>
+	<string name="discussion">Дискусия</string>
+	<string name="oldest_first">Първо най-старите</string>
+	<string name="comments">Коментари</string>
+	<string name="privacy">Поверителност</string>
+	<string name="related_posts">Подобни публикации</string>
+	<string name="close_after">Затваряне след</string>
+	<string name="media_error_no_permission_upload">Нямате права да качвате файлове в този сайт</string>
+	<string name="never">Никога</string>
+	<string name="reader_err_get_post_not_found">Тази публикация вече не съществува</string>
+	<string name="reader_err_get_post_not_authorized">Нямате права да четете тази публикация</string>
+	<string name="reader_err_get_post_generic">Неуспешно отваряне на публикацията</string>
+	<string name="blog_name_no_spaced_allowed">Адресът на сайта не може да съдържа интервали</string>
+	<string name="invalid_username_no_spaces">Потребителското име не може да съдържа интервали</string>
+	<string name="reader_empty_followed_blogs_no_recent_posts_title">Няма скорошни публикации</string>
+	<string name="edit_media">Редактиране на файл</string>
+	<string name="media_details_copy_url">Копиране на URL адрес</string>
+	<string name="media_details_label_date_uploaded">Дата на качване</string>
+	<string name="media_details_label_date_added">Добавено</string>
+	<string name="selected_theme">Избрана тема</string>
+	<string name="could_not_load_theme">Неуспешно зареждане на темата</string>
+	<string name="theme_activation_error">Нещо се обърка при активирането на темата.</string>
+	<string name="theme_by_author_prompt_append"> от %1$s</string>
+	<string name="theme_prompt">Благодарим ви че избрахте %1$s</string>
+	<string name="theme_support">Поддръжка</string>
+	<string name="theme_details">Детайли</string>
+	<string name="theme_view">Преглед</string>
+	<string name="theme_manage_site">УПРАВЛЕНИЕ НА САЙТ</string>
+	<string name="theme_done">ГОТОВО</string>
+	<string name="title_activity_theme_support">Теми</string>
+	<string name="theme_activate">Активиране</string>
+	<string name="support">Поддръжка</string>
+	<string name="date_range_start_date">Начална дата</string>
+	<string name="date_range_end_date">Крайна дата</string>
+	<string name="details">Детайли</string>
+	<string name="current_theme">Текуща тема</string>
+	<string name="customize">Персонализиране</string>
+	<string name="active">Активен</string>
+	<string name="stats_referrers_marking_not_spam">Маркиране като не-спам</string>
+	<string name="stats_referrers_unspam">Не е спам</string>
+	<string name="stats_referrers_marking_spam">Маркиране като спам</string>
+	<string name="stats_referrers_spam">Спам</string>
+	<string name="page_updated">Страницата бе обновена</string>
+	<string name="page_published">Страницата е публикувана</string>
+	<string name="post_published">Публикацията е публикувана</string>
+	<string name="post_updated">Публикацията е обновена</string>
+	<string name="theme_no_search_result_found">Няма открити теми.</string>
+	<string name="media_file_name">Име на файл: %s</string>
+	<string name="media_dimensions">Размери: %s</string>
+	<string name="media_uploaded_on">Дата на качване: %s</string>
+	<string name="media_file_type">Тип на файл: %s</string>
+	<string name="upload_queued">В опашката</string>
 	<string name="reader_label_gap_marker">Зареждане на още публикации</string>
 	<string name="notifications_no_search_results">Нито един сайт няма \'%s\'</string>
 	<string name="search_sites">Търсене в сайтовете</string>
@@ -107,7 +346,7 @@
 	<string name="me_disconnect_from_wordpress_com">Прекъсване на връзката с WordPress.com</string>
 	<string name="me_connect_to_wordpress_com">Свързване с WordPress.com</string>
 	<string name="me_btn_login_logout">Вход/Изход</string>
-	<string name="me_btn_settings">Настройки на профила</string>
+	<string name="account_settings">Настройки на профила</string>
 	<string name="me_btn_support">Помощ и поддръжка</string>
 	<string name="site_picker_cant_hide_current_site">"%s" не беше скрит защото е текущият уебсайт</string>
 	<string name="site_picker_create_dotcom">Създаване на WordPress.com уебсайт</string>
@@ -123,7 +362,6 @@
 	<string name="my_site_header_publish">Публикуване</string>
 	<string name="my_site_btn_blog_posts">Публикации</string>
 	<string name="my_site_header_configuration">Настройки</string>
-	<string name="my_site_header_admin">Администратор</string>
 	<string name="reader_label_new_posts_subtitle">Натиснете за да ги прегледате</string>
 	<string name="notifications_account_required">За да прегледате вашите известявания влезте в WordPress.com</string>
 	<string name="stats_unknown_author">Непознат автор</string>
@@ -170,6 +408,8 @@
 	<string name="two_step_sms_sent">Проверете текстовите ви съобщения за верификационния код</string>
 	<string name="sign_in_jetpack">За да се свържете с Jetpack влезте с WordPress.com акаунт.</string>
 	<string name="auth_required">За да продължите влезте отново.</string>
+	<string name="media_details_label_file_name">Име на файл</string>
+	<string name="media_details_label_file_type">Тип на файла</string>
 	<string name="posts_fetching">Извличане на публикации...</string>
 	<string name="reader_empty_posts_request_failed">Възникна грешка при извличане на публикациите</string>
 	<string name="comments_fetching">Извличане на коментари...</string>
@@ -302,6 +542,7 @@
 	<string name="reader_label_view_original">Преглед оригиналната статия</string>
 	<string name="error_publish_empty_post">Публикуването на празна публикация не е разрешено</string>
 	<string name="comment_reply_to_user">Отговоряне на %s</string>
+	<string name="more">Още</string>
 	<string name="reader_toast_err_generic">Действието беше неуспешно</string>
 	<string name="reader_toast_blog_blocked">Публикациите от този блог вече няма да бъдат покавзани</string>
 	<string name="reader_menu_block_blog">Блокиране на този блог</string>
@@ -314,11 +555,9 @@
 	<string name="hs__invalid_email_error">Въведете валидна електронна поща</string>
 	<string name="add_location">Добавете местоположение</string>
 	<string name="current_location">Текущо местоположение</string>
-	<string name="your_signature">Вашият подпис:</string>
 	<string name="search_location">Търсене</string>
 	<string name="edit_location">Редактиране</string>
 	<string name="search_current_location">Местоположение</string>
-	<string name="preference_privacy">Поверителност </string>
 	<string name="preference_send_usage_stats_summary">Автоматично изпращане на статистика за ползването, за да помогнете на развитието на WordPress за Android</string>
 	<string name="preference_send_usage_stats">Изпращане на статистика</string>
 	<string name="update_verb">Актуализиране</string>
@@ -349,7 +588,6 @@
 	<string name="comments_empty_list">Няма коментари</string>
 	<string name="wait_until_upload_completes">Изчакай трансфера да завърши</string>
 	<string name="category_automatically_renamed">Категорията %1$s не е валидна. Преименувана е на %2$s,</string>
-	<string name="invalid_url_message">Провери дали зададеният URL е валиден</string>
 	<string name="stats_empty_comments">Няма коментари</string>
 	<string name="error_refresh_pages">Страниците не могат да бъдат обновени в момента</string>
 	<string name="error_refresh_comments">Коментарите не могат да бъдат обновени в момента</string>
@@ -357,7 +595,6 @@
 	<string name="error_load_comment">Коментарът не можеше да бъде зареден</string>
 	<string name="passcode_wrong_passcode">Грешен ПИН</string>
 	<string name="theme_set_failed">Възникна грешка при смяна на темата</string>
-	<string name="auto_sharing_preference_reset">Нулиране на настройките за автоматично споделяне</string>
 	<string name="adding_cat_success">Категорията е добавена успешно</string>
 	<string name="error_downloading_image">Възникна грешка при извличане на това изображение</string>
 	<string name="invalid_username_too_short">Потребителското име трябва да е по-дълго от 4 символа</string>
@@ -377,7 +614,6 @@
 	<string name="username_reserved_but_may_be_available">Това потребителско име е резервирано в момента, но може да бъде налично в близките дни</string>
 	<string name="blog_not_found">Възникна грешка при достъпване на този блог</string>
 	<string name="error_edit_comment">Възникна грешка при редактирането на коментара</string>
-	<string name="auto_sharing_preference_reset_caused_by_error">Предишно избрания блог вече не е видим </string>
 	<string name="no_network_message">Няма налична мрежа</string>
 	<string name="blog_name_exists">Този уебсайт вече съществува</string>
 	<string name="username_required">Въведете потребителско име</string>
@@ -410,6 +646,7 @@
 	<string name="blog_name_must_be_less_than_sixty_four_characters">Адресът на сайта трябва да е по-малък от 64 символа</string>
 	<string name="username_or_password_incorrect">Името или паролата, които зададохте, са грешни</string>
 	<string name="nux_cannot_log_in">Свързването е невъзможно с момента</string>
+	<string name="invalid_url_message">Проверете дали зададеният адрес е валиден</string>
 	<string name="media_gallery_num_columns">Брой колони</string>
 	<string name="comment_status_spam">Спам</string>
 	<string name="comment_status_trash">Изхвърлено</string>
@@ -508,11 +745,11 @@
 	<string name="reader_toast_err_add_tag">Етикетът не може да бъде добавен</string>
 	<string name="reader_toast_err_remove_tag">Етикетът не може да бъде махнат</string>
 	<string name="email_hint">Електронна поща</string>
-	<string name="username_email">Потребителско име или електронна поща</string>
 	<string name="site_address">URL на вашия самостоятелно хостван уебсайт.</string>
 	<string name="email_cant_be_used_to_signup">Не може да използвате тази електронна поща за да влезете. Имаме проблеми с доставчика на тази пощенска услуга, който блокира част от нашите писма. Използвайте друг доставчик на електронна поща.</string>
 	<string name="email_reserved">Тази електронна поща вече се използва. Проверете вашата пощенска кутия за писмо с данни за активиране. Ако не активирате сега можете да опитате отново след няколко дни.</string>
 	<string name="notifications_empty_all">Все още няма известявания.</string>
+	<string name="invalid_site_url_message">Уверете се че въведения URL адрес на сайт е валиден</string>
 	<string name="deleting_page">Изтриване на страница</string>
 	<string name="deleting_post">Изтриване на статия</string>
 	<string name="share_url_post">Споделяне на статия</string>
@@ -528,11 +765,8 @@
 	<string name="reader_label_reply">Отговор</string>
 	<string name="cant_share_no_visible_blog">Не можете да споделяте към WordPress без видим блог</string>
 	<string name="reader_toast_err_get_comment">Възникна грешка при извличането на този коментар</string>
-	<string name="reset_auto_share_preference">Нулирайте настройките на автоматичното споделяне</string>
 	<string name="download">Сваляне на медиа</string>
 	<string name="comment_spammed">Коментарът е отбелязан като спам</string>
-	<string name="share_preference_title">Споделяне с WordPress</string>
-	<string name="always_use_these_settings_to_share">Винаги тези настройки</string>
 	<string name="validating_site_data">Валидиране на даннитена сайта</string>
 	<string name="validating_user_data">Валидиране на данните на потребителя</string>
 	<string name="account_two_step_auth_enabled">За този профил е активирана двустепенна защита. За да генерирате необходимата парола посетете WordPress.com .</string>
@@ -622,8 +856,6 @@
 	<string name="media_gallery_image_order_random">Произволен</string>
 	<string name="media_gallery_type">Вид</string>
 	<string name="media_gallery_type_tiled">Плочки</string>
-	<string name="media_no_video_title">VideoPress не е наличен</string>
-	<string name="media_no_video_message">Обновете VideoPress за да качите видео!</string>
 	<string name="media_edit_failure">Актуализирането е неуспешно</string>
 	<string name="themes_details_label">Подробности</string>
 	<string name="themes_features_label">Възможности</string>
@@ -639,6 +871,7 @@
 	<string name="passcode_change_passcode">Промяна на ПИН</string>
 	<string name="passcode_set">Запазване на ПИН</string>
 	<string name="upload">Качване</string>
+	<string name="discard">Изхвърли</string>
 	<string name="notifications">Известия</string>
 	<string name="new_notifications">%d нови известия</string>
 	<string name="more_notifications">и още %d.</string>
@@ -647,8 +880,6 @@
 	<string name="follows">Следва</string>
 	<string name="loading">Зареждане...</string>
 	<string name="httppassword">HTTP Парола</string>
-	<string name="post_signature">Подпис на публикациите</string>
-	<string name="add_tagline">Добавяне на подпис към новите публикации</string>
 	<string name="httpuser">Потребител за HTTP</string>
 	<string name="error_media_upload">Грешка при качването на медийния файл</string>
 	<string name="post_content">Съдържание (докосни, за да добавиш текст и снимки)</string>
@@ -674,14 +905,14 @@
 	<string name="scaled_image">Оразмеряване ширината на изображението</string>
 	<string name="scheduled">Планирана</string>
 	<string name="link_enter_url">URL</string>
-	<string name="posted_from">Публикувано чрез WordPress за Android</string>
 	<string name="version">Версия</string>
 	<string name="tos">Условия за ползване</string>
 	<string name="app_title">WordPress за Android</string>
-	<string name="about">Относно</string>
+	<string name="max_thumbnail_px_width">Широчина на изображение по подразбиране</string>
 	<string name="image_alignment">Подравняване</string>
 	<string name="refresh">Презареждане</string>
 	<string name="untitled">Неозаглавен</string>
+	<string name="edit">Редактирай</string>
 	<string name="post_id">Публикация</string>
 	<string name="page_id">Страница</string>
 	<string name="post_password">Парола (по избор)</string>
@@ -699,9 +930,9 @@
 	<string name="title">Заглавие</string>
 	<string name="categories">Категории</string>
 	<string name="tags_separate_with_commas">Етикети (разделени със запетаи)</string>
+	<string name="dlg_deleting_comments">Изтриване на коментарите</string>
 	<string name="notification_vibrate">Вибриране</string>
 	<string name="notification_blink">Светлинно известяване</string>
-	<string name="notification_sound">Звуково известяване</string>
 	<string name="status">Състояние</string>
 	<string name="select_video">Изберете видео от галерията</string>
 	<string name="location">Местоположение</string>
@@ -722,50 +953,4 @@
 	<string name="add">Добавяне</string>
 	<string name="preview">Предвариетелен преглед</string>
 	<string name="reply">Отговор</string>
-	<string-array name="alignment_array">
-		<item>Няма</item>
-		<item>Ляво</item>
-		<item>Център</item>
-		<item>Дясно</item>
-	</string-array>
-	<string-array name="notifications_blog_settings">
-		<item>Коментара на моя сайт</item>
-		<item>Харесвания на моите коментари</item>
-		<item>Харесвания на моите публикации</item>
-		<item>Последвани сайта</item>
-		<item>Достижения на сайта</item>
-		<item>Споменавания на потребителското име</item>
-	</string-array>
-	<string-array name="notifications_other_settings">
-		<item>Отговори на моите коментари</item>
-		<item>Харесвания на моите коментари</item>
-	</string-array>
-	<string-array name="notifications_wpcom_settings">
-		<item>Предложения</item>
-		<item>Изследване</item>
-		<item>Общност</item>
-	</string-array>
-	<string-array name="notifications_wpcom_settings_summaries">
-		<item>Подсказки как да извлечем максима от WordPress.com</item>
-		<item>Възможности за участие в проучванията и изследванията на WordPress.com</item>
-		<item>Информация за курсовете и събитията (онлайн и лице-в-лице) на WordPress.com</item>
-	</string-array>
-	<string-array name="post_filters_array">
-		<item>Публикувани</item>
-		<item>Чернови</item>
-		<item>В график</item>
-		<item>Изхвърлени</item>
-	</string-array>
-	<string-array name="post_formats_array">
-		<item>Бележка</item>
-		<item>Аудио</item>
-		<item>Чат</item>
-		<item>Галерия</item>
-		<item>Изображение</item>
-		<item>Връзка</item>
-		<item>Цитат</item>
-		<item>Стандартен</item>
-		<item>Състояние</item>
-		<item>Видео</item>
-	</string-array>
 </resources>

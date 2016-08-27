@@ -32,12 +32,10 @@ import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.Toast;
 
-import org.wordpress.android.Constants;
 import org.wordpress.android.R;
 import org.wordpress.android.WordPress;
 import org.wordpress.android.models.FeatureSet;
 import org.wordpress.android.ui.ActivityId;
-import org.wordpress.android.ui.ActivityLauncher;
 import org.wordpress.android.ui.media.MediaEditFragment.MediaEditFragmentCallback;
 import org.wordpress.android.ui.media.MediaGridFragment.Filter;
 import org.wordpress.android.ui.media.MediaGridFragment.MediaGridListener;
@@ -48,7 +46,6 @@ import org.wordpress.android.util.ActivityUtils;
 import org.wordpress.android.util.NetworkUtils;
 import org.wordpress.android.util.PermissionUtils;
 import org.wordpress.android.util.ToastUtils;
-import org.wordpress.android.widgets.WPAlertDialogFragment;
 import org.xmlrpc.android.ApiHelper;
 import org.xmlrpc.android.ApiHelper.GetFeatures.Callback;
 
@@ -138,12 +135,6 @@ public class MediaBrowserActivity extends AppCompatActivity implements MediaGrid
     }
 
     @Override
-    public void finish() {
-        super.finish();
-        ActivityLauncher.slideOutToRight(this);
-    }
-
-    @Override
     public void onStart() {
         super.onStart();
         registerReceiver(mReceiver, new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
@@ -216,28 +207,14 @@ public class MediaBrowserActivity extends AppCompatActivity implements MediaGrid
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 adapter.notifyDataSetChanged();
 
-                // Support video only if you are self-hosted or are a dot-com blog with the video
-                // press upgrade
-                boolean selfHosted = !WordPress.getCurrentBlog().isDotcomFlag();
-                boolean isVideoEnabled = selfHosted
-                        || (mFeatureSet != null && mFeatureSet.isVideopressEnabled());
-
                 if (position == 0) {
                     mMediaAddFragment.launchCamera();
                 } else if (position == 1) {
-                    if (isVideoEnabled) {
-                        mMediaAddFragment.launchVideoCamera();
-                    } else {
-                        showVideoPressUpgradeDialog();
-                    }
+                    mMediaAddFragment.launchVideoCamera();
                 } else if (position == 2) {
                     mMediaAddFragment.launchPictureLibrary();
                 } else if (position == 3) {
-                    if (isVideoEnabled) {
-                        mMediaAddFragment.launchVideoLibrary();
-                    } else {
-                        showVideoPressUpgradeDialog();
-                    }
+                    mMediaAddFragment.launchVideoLibrary();
                 }
 
                 mAddMediaPopup.dismiss();
@@ -248,17 +225,6 @@ public class MediaBrowserActivity extends AppCompatActivity implements MediaGrid
 
         mAddMediaPopup = new PopupWindow(layoutView, width, ViewGroup.LayoutParams.WRAP_CONTENT, true);
         mAddMediaPopup.setBackgroundDrawable(new ColorDrawable());
-    }
-
-    private void showVideoPressUpgradeDialog() {
-        FragmentTransaction ft = getFragmentManager().beginTransaction();
-        String title = getString(R.string.media_no_video_title);
-        String message = getString(R.string.media_no_video_message);
-        String infoTitle = getString(R.string.learn_more);
-        String infoURL = Constants.videoPressURL;
-        WPAlertDialogFragment alert = WPAlertDialogFragment.newUrlInfoDialog(title, message, infoTitle, infoURL);
-        ft.add(alert, "alert");
-        ft.commitAllowingStateLoss();
     }
 
     @Override
@@ -292,12 +258,15 @@ public class MediaBrowserActivity extends AppCompatActivity implements MediaGrid
         super.onPause();
 
         if (mSearchMenuItem != null) {
+            String tempQuery = mQuery;
             MenuItemCompat.collapseActionView(mSearchMenuItem);
+            mQuery = tempQuery;
         }
     }
 
     @Override
     public void onMediaItemSelected(String mediaId) {
+        String tempQuery = mQuery;
         if (mSearchView != null) {
             mSearchView.clearFocus();
         }
@@ -315,6 +284,7 @@ public class MediaBrowserActivity extends AppCompatActivity implements MediaGrid
             ft.add(R.id.media_browser_container, mMediaItemFragment, MediaItemFragment.TAG);
             ft.addToBackStack(null);
             ft.commitAllowingStateLoss();
+            mQuery = tempQuery;
         }
     }
 
@@ -323,9 +293,27 @@ public class MediaBrowserActivity extends AppCompatActivity implements MediaGrid
         super.onCreateOptionsMenu(menu);
         mMenu = menu;
         getMenuInflater().inflate(R.menu.media, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
         mSearchView = (SearchView) menu.findItem(R.id.menu_search).getActionView();
         mSearchView.setOnQueryTextListener(this);
-        return true;
+
+        mSearchMenuItem = menu.findItem(R.id.menu_search);
+        MenuItemCompat.setOnActionExpandListener(mSearchMenuItem, this);
+
+        //open search bar if we were searching for something before
+        if (!TextUtils.isEmpty(mQuery) && mMediaGridFragment != null && mMediaGridFragment.isVisible()) {
+            String tempQuery = mQuery; //temporary hold onto query
+            MenuItemCompat.expandActionView(mSearchMenuItem); //this will reset mQuery
+            onQueryTextSubmit(tempQuery);
+            mSearchView.setQuery(mQuery, true);
+        }
+
+        return super.onPrepareOptionsMenu(menu);
+
     }
 
     @Override
@@ -461,11 +449,6 @@ public class MediaBrowserActivity extends AppCompatActivity implements MediaGrid
 
     @Override
     public boolean onMenuItemActionCollapse(MenuItem item) {
-        // preserve the previous query
-        String tmpQuery = mQuery;
-        onQueryTextChange("");
-        mQuery = tmpQuery;
-
         if (mMediaGridFragment != null) {
             mMediaGridFragment.setFilterVisibility(View.VISIBLE);
             mMediaGridFragment.setFilter(Filter.ALL);

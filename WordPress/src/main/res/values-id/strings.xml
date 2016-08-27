@@ -1,6 +1,254 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="error_post_my_account_settings">Tidak dapat menyimpan pengaturan akun Anda</string>
+	<string name="error_fetch_users_list">Gagal menampilkan pengguna situs</string>
+	<string name="plans_manage">Kelola paket Anda di \nWordPress.com/plans</string>
+	<string name="people_empty_list_filtered_viewers">Anda belum memiliki satupun pengunjung.</string>
+	<string name="people_fetching">Mengambil pengguna...</string>
+	<string name="title_follower">Pengikut</string>
+	<string name="title_email_follower">Pengikut Email</string>
+	<string name="people_empty_list_filtered_email_followers">Anda belum memiliki satupun pengikut email.</string>
+	<string name="people_empty_list_filtered_followers">Anda belum memiliki satupun pengikut.</string>
+	<string name="people_empty_list_filtered_users">Anda belum memiliki satupun pengguna.</string>
+	<string name="people_dropdown_item_email_followers">Pengikut Email</string>
+	<string name="people_dropdown_item_viewers">Pengunjung</string>
+	<string name="people_dropdown_item_followers">Pengikut</string>
+	<string name="people_dropdown_item_team">Tim</string>
+	<string name="invite_message_usernames_limit">Undang hingga 10 alamat email dan/atau nama pengguna WordPress.com. Mereka yang membutuhkan nama pengguna akan menerima instruksi untuk mendapatkannya.</string>
+	<string name="viewer_remove_confirmation_message">Jika Anda menghapus pengunjung ini, ia tak akan bisa mengunjungi situs ini lagi.\n\nApakah Anda masih ingin menghapus pengunjung ini?</string>
+	<string name="follower_remove_confirmation_message">Jika dihapus, pengunjung ini akan berhenti menerima notifikasi mengenai situs ini, kecuali mereka mengikuti lagi.\n\nApakah Anda masih ingin menghapus pengunjung ini?</string>
+	<string name="follower_subscribed_since">Sejak %1$s</string>
+	<string name="reader_label_view_gallery">Lihat Galeri</string>
+	<string name="reader_label_image_count">%d gambar</string>
+	<string name="error_remove_follower">Gagal menghapus pengikut</string>
+	<string name="error_remove_viewer">Gagal menghapus pengunjung</string>
+	<string name="error_fetch_email_followers_list">Gagal menampilkan pengikut email situs</string>
+	<string name="error_fetch_followers_list">Gagal menampilkan pengikut situs</string>
+	<string name="editor_failed_uploads_switch_html">Beberapa media gagal diunggah. Anda bisa pindah ke mode HTML\n        dalam situasi begini. Hapus semua unggahan yang gagal dan lanjutkan?</string>
+	<string name="format_bar_description_html">Mode HTML</string>
+	<string name="visual_editor">Editor Visual</string>
+	<string name="image_thumbnail">Miniatur gambar</string>
+	<string name="format_bar_description_ul">Daftar tak bernomor</string>
+	<string name="format_bar_description_ol">Daftar bernomor</string>
+	<string name="format_bar_description_more">Sisipkan lagi</string>
+	<string name="format_bar_description_media">Sisipkan media</string>
+	<string name="format_bar_description_strike">Coretan</string>
+	<string name="format_bar_description_quote">Blok kutipan</string>
+	<string name="format_bar_description_link">Sisipkan tautan</string>
+	<string name="format_bar_description_underline">Garis bawah</string>
+	<string name="format_bar_description_italic">Miring</string>
+	<string name="image_settings_save_toast">Perubahan tersimpan</string>
+	<string name="image_caption">Keterangan gambar</string>
+	<string name="image_alt_text">Alt text</string>
+	<string name="image_link_to">Tautkan ke</string>
+	<string name="image_width">Lebar</string>
+	<string name="format_bar_description_bold">Tebal</string>
+	<string name="image_settings_dismiss_dialog_title">Buang perubahan yang belum disimpan?</string>
+	<string name="stop_upload_dialog_title">Stop mengunggah?</string>
+	<string name="stop_upload_button">Stop Pengunggahan</string>
+	<string name="alert_error_adding_media">Terjadi galat saat menyisipkan media</string>
+	<string name="alert_action_while_uploading">Anda sedang mengunggah media. Mohon tunggu hingga selesai.</string>
+	<string name="alert_insert_image_html_mode">Gagal menyisipkan media dalam mode HTML. Silakan pindah ke mode visual.</string>
+	<string name="uploading_gallery_placeholder">Mengunggah galeri...</string>
+	<string name="invite_sent">Undangan berhasil terkirim</string>
+	<string name="tap_to_try_again">Ketuk untuk mencoba lagi!</string>
+	<string name="invite_error_some_failed">Undangan terkirim namun terjadi galat!</string>
+	<string name="invite_error_for_username">%1$s: %2$s</string>
+	<string name="invite_error_sending">Terjadi sebuah galat saat mencoba mengirimkan undangan!</string>
+	<string name="invite_error_invalid_usernames_multiple">Gagal mengirim: Ada nama pengguna atau email yang tak valid</string>
+	<string name="invite_error_invalid_usernames_one">Gagal mengirim: Ada sebuah nama pengguna atau email yang tak valid</string>
+	<string name="invite_error_no_usernames">Mohon tambahkan sedikitnya satu nama pengguna</string>
+	<string name="invite_message_info">(Opsional) Anda bisa memasukkan sebuah pesan sepanjang 500 karakter yang akan disertakan dalam undangan bagi para pengguna.</string>
+	<string name="invite_message_remaining_other">%d karakter tersisa</string>
+	<string name="invite_message_remaining_one">1 karakter tersisa</string>
+	<string name="invite_message_remaining_zero">0 karakter tersisa</string>
+	<string name="invite_invalid_email">Alamat email \'%s\' invalid</string>
+	<string name="invite_message_title">Pesan Kustom</string>
+	<string name="invite_already_a_member">Sudah ada anggota dengan nama pengguna \'%s\'</string>
+	<string name="invite_username_not_found">Tak ditemukan pengguna dengan nama \'%s\'</string>
+	<string name="invite">Undang</string>
+	<string name="invite_names_title">Nama pengguna atau Email</string>
+	<string name="signup_succeed_signin_failed">Akun Anda telah dibuat namun terjadi galat saat mencoba masuk.\n        Coba untuk masuk dengan nama pengguna dan password baru Anda.</string>
+	<string name="send_link">Kirim tautan</string>
+	<string name="my_site_header_external">Eksternal</string>
+	<string name="invite_people">Undang Orang-orang</string>
+	<string name="label_clear_search_history">Bersihkan riwayat pencarian</string>
+	<string name="dlg_confirm_clear_search_history">Bersihkan riwayat pencarian?</string>
+	<string name="reader_empty_posts_in_search_description">Tak ditemukan pos untuk %s dalam bahasa Anda</string>
+	<string name="reader_label_post_search_running">Mencari...</string>
+	<string name="reader_label_related_posts">Bacaan Terkait</string>
+	<string name="reader_empty_posts_in_search_title">Tak ditemukan pos</string>
+	<string name="reader_label_post_search_explainer">Cari seluruh blog publik WordPress.com</string>
+	<string name="reader_hint_post_search">Cari WordPress.com</string>
+	<string name="reader_title_related_post_detail">Pos Terkait</string>
+	<string name="reader_title_search_results">Cari %s</string>
+	<string name="preview_screen_links_disabled">Tautan dinonaktifkan pada laman pratinjau</string>
+	<string name="draft_explainer">Pos ini adalah sebuah draf yang belum diterbitkan</string>
+	<string name="send">Kirim</string>
+	<string name="user_remove_confirmation_message">Jika Anda menghapus %1$s, pengguna tsb tak bisa mengakses situs ini lagi, tetapi semua konten yang telah dibuat oleh %1$s akan tetap ada di situs ini.\n\nApakah Anda masih ingin menghapus pengguna ini?</string>
+	<string name="person_removed">Berhasil menghapus %1$s</string>
+	<string name="person_remove_confirmation_title">Hapus %1$s</string>
+	<string name="reader_empty_posts_in_custom_list">Situs dalam daftar ini belum memposting apa pun baru-baru ini</string>
+	<string name="people">Orang</string>
+	<string name="edit_user">Edit Pengguna</string>
+	<string name="role">Peran</string>
+	<string name="error_remove_user">Tidak dapat menghapus pengguna</string>
+	<string name="error_update_role">Tidak dapat memperbarui peran pengguna</string>
+	<string name="error_fetch_viewers_list">Gagal menampilkan pengunjung situs</string>
+	<string name="gravatar_camera_and_media_permission_required">Izin diperlukan untuk memilih atau mengambil foto</string>
+	<string name="error_updating_gravatar">Terjadi galat saat memperbarui Gravatar</string>
+	<string name="error_locating_image">Terjadi galat saat mencari gambar yang dipangkas</string>
+	<string name="error_refreshing_gravatar">Terjadi galat saat memuat ulang Gravatar</string>
+	<string name="gravatar_tip">Baru! Ketuk Gravatar untuk mengubahnya!</string>
+	<string name="error_cropping_image">Terjadi galat saat memangkas gambar</string>
+	<string name="launch_your_email_app">Luncurkan aplikasi surat elektronik</string>
+	<string name="checking_email">Memeriksa surat elektronik</string>
+	<string name="not_on_wordpress_com">Tidak di WordPress.com?</string>
+	<string name="magic_link_unavailable_error_message">Saat ini tidak tersedia. Masukkan kata sandi Anda</string>
+	<string name="check_your_email">Periksa surat elektronik Anda</string>
+	<string name="get_a_link_sent_to_your_email_to_sign_in_instantly">Dapatkan tautan yang dikirimkan ke surat elektronik Anda untuk langsung masuk</string>
+	<string name="logging_in">Proses masuk</string>
+	<string name="enter_your_password_instead">Sebaiknya masukkan kata sandi Anda</string>
+	<string name="web_address_dialog_hint">Ditampilkan secara publik saat Anda berkomentar.</string>
+	<string name="jetpack_not_connected_message">Plugin Jetpack terpasang, tetapi tidak terhubung ke WordPress.com. Ingin menghubungkan Jetpack?</string>
+	<string name="username_email">Surat elektronik atau nama pengguna</string>
+	<string name="jetpack_not_connected">Plugin Jetpack tidak terhubung</string>
+	<string name="new_editor_reflection_error">Visual editor tidak kompatibel dengan perangkat Anda. Ini\n dinonaktifkan secara otomatis.</string>
+	<string name="stats_insights_latest_post_no_title">(tanpa judul)</string>
+	<string name="capture_or_pick_photo">Ambil atau pilih foto</string>
+	<string name="plans_post_purchase_text_themes">Anda sekarang memiliki akses tak terbatas ke tema Premium. Pratinjau tema apa pun di situs Anda untuk memulai.</string>
+	<string name="plans_post_purchase_button_themes">Telusuri Tema</string>
+	<string name="plans_post_purchase_title_themes">Temukan tema Premium yang sempurna</string>
+	<string name="plans_post_purchase_button_video">Mulai pos baru</string>
+	<string name="plans_post_purchase_text_video">Anda dapat mengunggah dan meng-hosting video di situs Anda dengan VideoPress dan penyimpanan media yang diperluas.</string>
+	<string name="plans_post_purchase_title_video">Hidupkan pos dengan video</string>
+	<string name="plans_post_purchase_button_customize">Sesuaikan Situs saya</string>
+	<string name="plans_post_purchase_text_customize">Anda sekarang memiliki akses ke fon khusus, warna khusus, dan kemampuan pengeditan CSS khusus.</string>
+	<string name="plans_post_purchase_text_intro">Situs Anda melakukan perubahan dalam keseruan! Sekarang jelajahi fitur baru Anda dan pilih dari mana Anda ingin memulainya.</string>
+	<string name="plans_post_purchase_title_customize">Menyesuaikan Fon &amp; Warna</string>
+	<string name="plans_post_purchase_title_intro">Semua milik Anda, saatnya melangkah!</string>
+	<string name="export_your_content_message">Pos, halaman, dan pengaturan Anda akan dikirimkan melalui email kepada Anda pada %s.</string>
+	<string name="plan">Paket</string>
+	<string name="plans">Paket</string>
+	<string name="plans_loading_error">Tidak dapat memuat paket</string>
+	<string name="export_your_content">Ekspor konten Anda</string>
+	<string name="exporting_content_progress">Mengekspor konten…</string>
+	<string name="export_email_sent">Email ekspor sudah dikirimkan!</string>
+	<string name="premium_upgrades_message">Anda memiliki peningkatan premium aktif dalam situs Anda. Batalkan peningkatan sebelum menghapus situs Anda.</string>
+	<string name="show_purchases">Tampilkan pembelian</string>
+	<string name="checking_purchases">Memeriksa pembelian</string>
+	<string name="premium_upgrades_title">Peningkatan Premium</string>
+	<string name="purchases_request_error">Terjadi masalah. Tidak dapat meminta pembelian.</string>
+	<string name="delete_site_progress">Menghapus situs…</string>
+	<string name="delete_site_summary">Tindakan ini tidak dapat dibatalkan. Menghapus situs Anda akan membuang semua konten, kontributor, dan domain dari situs.</string>
+	<string name="delete_site_hint">Hapus situs</string>
+	<string name="export_site_hint">Ekspor situs Anda ke file XML</string>
+	<string name="are_you_sure">Apakah Anda Yakin?</string>
+	<string name="export_site_summary">Jika Anda yakin, segera luangkan waktu dan ekspor konten Anda sekarang. Itu tidak dapat dikembalikan di masa mendatang.</string>
+	<string name="keep_your_content">Jaga Konten Anda</string>
+	<string name="domain_removal_hint">Domain yang tidak berfungsi setelah Anda menghapus situs Anda</string>
+	<string name="domain_removal_summary">Hati-hati! Menghapus situs Anda juga akan menghapus domain Anda di bawah ini.</string>
+	<string name="primary_domain">Domain Primer</string>
+	<string name="domain_removal">Penghapusan Domain</string>
+	<string name="error_deleting_site_summary">Ada kesalahan saat menghapus situs Anda. Hubungi dukungan untuk bantuan selengkapnya</string>
+	<string name="error_deleting_site">Kesalahan saat menghapus situs</string>
+	<string name="confirm_delete_site_prompt">Harap ketikkan %1$s di bidang di bawah untuk mengonfirmasi. Situs Anda akan dihapus selamanya.</string>
+	<string name="site_settings_export_content_title">Ekspor konten</string>
+	<string name="contact_support">Hubungi dukungan</string>
+	<string name="confirm_delete_site">Konfirmasi Penghapusan Situs</string>
+	<string name="start_over_text">Jika Anda menginginkan sebuah situs tetapi tidak menginginkan beberapa pos dan halaman yang Anda miliki saat ini, tim dukungan kami dapat menghapus pos, halaman, media, dan komentar untuk Anda.\n\nTindakan ini akan membuat situs dan URL Anda tetap aktif, tetapi memberi Anda titik awal yang segar di pembuatan konten. Cukup hubungi kami untuk membersihkan konten Anda saat ini.</string>
+	<string name="site_settings_start_over_hint">Mulai dari awal situs Anda</string>
+	<string name="let_us_help">Mari Kami Bantu</string>
+	<string name="me_btn_app_settings">Pengaturan Aplikasi</string>
+	<string name="start_over">Mulai</string>
+	<string name="editor_remove_failed_uploads">Buang unggahan yang gagal</string>
+	<string name="editor_toast_failed_uploads">Gagal mengunggah beberapa media. Tidak dapat menyimpan atau menerbitkan\n pos Anda dalam status ini. Anda ingin membuang semua media yang gagal?</string>
+	<string name="comments_empty_list_filtered_trashed">Tidak ada komentar Sampah</string>
+	<string name="site_settings_advanced_header">Lanjutan</string>
+	<string name="comments_empty_list_filtered_pending">Tidak ada komentar Tertunda</string>
+	<string name="comments_empty_list_filtered_approved">Tidak ada komentar Disetujui</string>
+	<string name="button_done">Selesai</string>
+	<string name="button_skip">Lewati</string>
+	<string name="site_timeout_error">Tidak dapat terhubung ke situs WordPress karena kesalahan Waktu Habis.</string>
+	<string name="xmlrpc_malformed_response_error">Tidak dapat terhubung. Pemasangan WordPress merespons dengan dokumen XML-RPC yang tidak valid.</string>
+	<string name="xmlrpc_missing_method_error">Tidak dapat terhubung. Metode XML-RPC yang diperlukan tidak ditemukan di server.</string>
+	<string name="post_format_status">Status</string>
+	<string name="post_format_video">Video</string>
+	<string name="align_none">Tidak Ada</string>
+	<string name="align_left">Kiri</string>
+	<string name="align_center">Tengah</string>
+	<string name="align_right">Kanan</string>
+	<string name="theme_free">Gratis</string>
+	<string name="theme_all">Semua</string>
+	<string name="theme_premium">Premium</string>
+	<string name="post_format_chat">Obrolan</string>
+	<string name="post_format_gallery">Galeri</string>
+	<string name="post_format_image">Gambar</string>
+	<string name="post_format_link">Tautan</string>
+	<string name="post_format_quote">Kutipan</string>
+	<string name="post_format_standard">Standar</string>
+	<string name="notif_events">Informasi tentang kursus dan acara WordPress.com (online &amp; tatap muka).</string>
+	<string name="post_format_aside">Ke samping</string>
+	<string name="post_format_audio">Audio</string>
+	<string name="notif_surveys">Kesempatan untuk berpartisipasi dalam riset &amp; survei WordPress.com.</string>
+	<string name="notif_tips">Kiat untuk mendapat maksimal dari WordPress.com.</string>
+	<string name="notif_community">Komunitas</string>
+	<string name="replies_to_my_comments">Balas komentar saya</string>
+	<string name="notif_suggestions">Saran</string>
+	<string name="notif_research">Riset</string>
+	<string name="site_achievements">Prestasi situs</string>
+	<string name="username_mentions">Penyebutan nama pengguna</string>
+	<string name="likes_on_my_posts">Suka pada pos saya</string>
+	<string name="site_follows">Pengikut Situs</string>
+	<string name="likes_on_my_comments">Suka pada komentar saya</string>
+	<string name="comments_on_my_site">Komentar di situs saya</string>
+	<string name="site_settings_list_editor_summary_other">%d items</string>
+	<string name="site_settings_list_editor_summary_one">1 item</string>
+	<string name="approve_auto_if_previously_approved">Komentar pengguna yang diketahui</string>
+	<string name="approve_auto">Semua pengguna</string>
+	<string name="approve_manual">Tak ada komentar</string>
+	<string name="site_settings_paging_summary_other">%d komentar per halaman</string>
+	<string name="site_settings_paging_summary_one">1 komentar per halaman</string>
+	<string name="site_settings_multiple_links_summary_other">Minta persetujuan untuk lebih dari %d tautan</string>
+	<string name="site_settings_multiple_links_summary_one">Minta persetujuan untuk lebih dari 1 tautan</string>
+	<string name="site_settings_multiple_links_summary_zero">Minta persetujuan untuk lebih dari 0 tautan</string>
+	<string name="detail_approve_auto">Otomatis setujui komentar semua orang.</string>
+	<string name="detail_approve_auto_if_previously_approved">Otomatis setujui jika pengguna memiliki komentar yang disetujui sebelumnya</string>
+	<string name="detail_approve_manual">Wajibkan persetujuan manual untuk komentar semua orang.</string>
+	<string name="filter_trashed_posts">Dibuang</string>
+	<string name="days_quantity_one">1 hari</string>
+	<string name="days_quantity_other">%d hari</string>
+	<string name="filter_published_posts">Diterbitkan</string>
+	<string name="filter_draft_posts">Draf</string>
+	<string name="filter_scheduled_posts">Terjadwal</string>
+	<string name="pending_email_change_snackbar">Klik tautan verifikasi di email yang dikirimkan ke %1$s untuk mengonfirmasi alamat baru Anda</string>
+	<string name="primary_site">Situs Utama</string>
+	<string name="web_address">Alamat Web</string>
+	<string name="editor_toast_uploading_please_wait">Saat ini Anda sedang mengunggah media. Harap tunggu hingga selesai.</string>
+	<string name="error_refresh_comments_showing_older">Komentar tidak dapat disegarkan pada saat ini - menunjukkan komentar lama</string>
+	<string name="editor_post_settings_set_featured_image">Atur Gambar Unggulan</string>
+	<string name="editor_post_settings_featured_image">Gambar Unggulan</string>
+	<string name="new_editor_promo_desc">Aplikasi WordPress untuk Android sekarang berisi visual baru yang cantik\n penyunting Cobalah dengan membuat pos baru.</string>
+	<string name="new_editor_promo_title">Penyunting baru</string>
+	<string name="new_editor_promo_button_label">Bagus, terima kasih!</string>
+	<string name="visual_editor_enabled">Editor Visual diaktifkan</string>
+	<string name="editor_content_placeholder">Editor Visual diaktifkan</string>
+	<string name="editor_page_title_placeholder">Judul Halaman</string>
+	<string name="editor_post_title_placeholder">Judul Kiriman</string>
+	<string name="email_address">Alamat email</string>
+	<string name="preference_show_visual_editor">Tampilkan editor visual</string>
+	<string name="dlg_sure_to_delete_comments">Hapus komentar ini secara permanen?</string>
+	<string name="preference_editor">Penyunting</string>
+	<string name="dlg_sure_to_delete_comment">Hapus komentar ini secara permanen?</string>
+	<string name="mnu_comment_delete_permanently">Hapus</string>
+	<string name="comment_deleted_permanently">Komentar dihapus</string>
+	<string name="mnu_comment_untrash">Pulihkan</string>
+	<string name="comments_empty_list_filtered_spam">Tidak ada komentar Spam</string>
+	<string name="could_not_load_page">Tidak dapat memuat halaman</string>
+	<string name="comment_status_all">Semua</string>
+	<string name="interface_language">Bahasa Antarmuka</string>
+	<string name="off">Nonaktif</string>
+	<string name="about_the_app">Tentang aplikasi</string>
+	<string name="error_post_account_settings">Tidak dapat menyimpan pengaturan akun Anda</string>
 	<string name="error_post_my_profile">Tidak dapat menyimpan profil Anda</string>
 	<string name="error_fetch_account_settings">Tidak dapat mengambil pengaturan akun Anda</string>
 	<string name="error_fetch_my_profile">Tidak dapat mengambil profil Anda</string>
@@ -15,6 +263,9 @@
 	<string name="add_category">Tambahkan kategori</string>
 	<string name="disabled">Dinonaktifkan</string>
 	<string name="site_settings_image_original_size">Ukuran Asli</string>
+	<string name="privacy_private">Situs Anda hanya dapat dilihat oleh Anda dan pengguna yang Anda setujui</string>
+	<string name="privacy_public_not_indexed">Situs Anda dapat dilihat oleh semua orang, tetapi meminta mesin pencari untuk tidak mengindeks.</string>
+	<string name="privacy_public">Situs Anda dapat dilihat oleh semua orang dan mungkin diindeks berdasarkan mesin pencarian.</string>
 	<string name="about_me_hint">Beberapa kata tentang Anda...</string>
 	<string name="about_me">Tentang saya</string>
 	<string name="public_display_name_hint">Nama tampilan secara default akan menjadi nama pengguna Anda bila tidak diatur</string>
@@ -278,8 +529,8 @@
 	<string name="me_btn_login_logout">Log masuk/keluar</string>
 	<string name="me_connect_to_wordpress_com">Koneksikan ke WordPress.com</string>
 	<string name="site_picker_cant_hide_current_site">"%s" tidak tersembunyi karena itu adalah situs saat ini</string>
-	<string name="me_btn_settings">Pengaturan Akun</string>
 	<string name="me_btn_support">Bantuan &amp; Dukungan</string>
+	<string name="account_settings">Pengaturan Akun</string>
 	<string name="site_picker_create_dotcom">Buat situs WordPress.com</string>
 	<string name="site_picker_add_self_hosted">Tambahkan situs mandiri (self-hosted)</string>
 	<string name="site_picker_edit_visibility">Tampilkan/sembunyikan situs</string>
@@ -293,7 +544,6 @@
 	<string name="my_site_btn_site_settings">Pengaturan</string>
 	<string name="my_site_btn_blog_posts">Pos Blog</string>
 	<string name="reader_label_new_posts_subtitle">Ketuk untuk menampilkannya</string>
-	<string name="my_site_header_admin">Admin</string>
 	<string name="my_site_header_configuration">Konfigurasi</string>
 	<string name="notifications_account_required">Masuk ke WordPress.com untuk notifikasi</string>
 	<string name="stats_unknown_author">Penulis Tak Dikenal</string>
@@ -487,11 +737,9 @@
 	<string name="hs__invalid_email_error">Masukkan sebuah alamat email yang sah</string>
 	<string name="current_location">Lokasi saat ini</string>
 	<string name="add_location">Tambahkan lokasi</string>
-	<string name="your_signature">Tanda tangan Anda:</string>
 	<string name="search_location">Cari</string>
 	<string name="edit_location">Sunting</string>
 	<string name="search_current_location">Temukan</string>
-	<string name="preference_privacy">Privasi</string>
 	<string name="preference_send_usage_stats">Kirim statistik</string>
 	<string name="preference_send_usage_stats_summary">Secara otomatis mengirim statistik penggunaan untuk membantu kami meningkatkan WordPress untuk Android</string>
 	<string name="update_verb">Mutakhirkan</string>
@@ -534,12 +782,9 @@
 	<string name="cat_name_required">Nama kategori wajib diisi</string>
 	<string name="category_automatically_renamed">Nama kategori %1$s tidak sah. Sudah diubah menjadi %2$s.</string>
 	<string name="no_account">Akun WordPress tidak ditemukan, masukkan akun dan coba lagi</string>
-	<string name="auto_sharing_preference_reset">Atur ulang pengaturan berbagi-otomatis</string>
-	<string name="auto_sharing_preference_reset_caused_by_error">Blog yang dipilih sebelumnya tak lagi terlihat</string>
 	<string name="sdcard_message">Kartu SD tambahan diperlukan untuk mengunggah media</string>
 	<string name="stats_empty_comments">Belum ada tanggapan</string>
 	<string name="stats_bar_graph_empty">Belum ada statistik</string>
-	<string name="invalid_url_message">Pastikan URL blog yang dimasukkan itu benar</string>
 	<string name="reply_failed">Gagal mengirim balasan</string>
 	<string name="notifications_empty_list">Tak ada pemberitahuan</string>
 	<string name="error_delete_post">Terjadi galat saat menghapus %s</string>
@@ -583,6 +828,7 @@
 	<string name="username_or_password_incorrect">Nama pengguna atau password yang Anda masukkan tidak tepat</string>
 	<string name="nux_cannot_log_in">Kami tak bisa me-log masukkan Anda</string>
 	<string name="could_not_remove_account">Gagal menghapus situs</string>
+	<string name="invalid_url_message">Pastikan URL yang dimasukkan sudah valid</string>
 	<string name="edit_post">Edit tulisan</string>
 	<string name="add_comment">Tambahkan komentar</string>
 	<string name="connection_error">Galat sambungan</string>
@@ -675,7 +921,6 @@
 	<string name="reader_toast_err_remove_tag">Tidak bisa menghapus tag ini</string>
 	<string name="required_field">Isian wajib</string>
 	<string name="email_hint">Alamat email</string>
-	<string name="username_email">Nama pengguna atau email</string>
 	<string name="site_address">Alamat (URL) host mandiri Anda</string>
 	<string name="email_cant_be_used_to_signup">Anda tak bisa menggunakan alamat email tersebut untuk mendaftar. Kami bermasalah dengan blokir mereka atas sejumlah email kami. Silakan gunakan layanan email lainnya.</string>
 	<string name="email_reserved">Alamat email tersebut telah digunakan. Periksa kotak masuk Anda untuk email aktivasi. Jika Anda tidak mengaktifkannya, Anda masih bisa mencoba lagi dalam beberapa hari.</string>
@@ -686,6 +931,7 @@
 	<string name="blog_removed_successfully">Situs berhasil dihapus</string>
 	<string name="remove_account">Hapus situs</string>
 	<string name="notifications_empty_all">Belum ada pemberitahuan...sampai sekarang.</string>
+	<string name="invalid_site_url_message">Pastikan URL situs yang dimasukkan sudah valid</string>
 	<string name="deleting_page">Menghapus laman</string>
 	<string name="deleting_post">Menghapus pos</string>
 	<string name="share_url_post">Bagikan pos</string>
@@ -701,9 +947,6 @@
 	<string name="reader_label_reply">Balas</string>
 	<string name="video">Video</string>
 	<string name="download">Mengunduh media</string>
-	<string name="share_preference_title">Bagikan ke WordPress</string>
-	<string name="reset_auto_share_preference">Reset pengaturan berbagi otomatis</string>
-	<string name="always_use_these_settings_to_share">Selalu gunakan pengaturan ini</string>
 	<string name="cant_share_no_visible_blog">Anda tidak bisa berbagi ke WordPress tanpa satupun blog yang terlihat oleh publik</string>
 	<string name="comment_spammed">Komentar ditandai sebagai spam</string>
 	<string name="select_time">Pilih waktu</string>
@@ -751,6 +994,7 @@
 	<string name="limit_reached">Mencapai batasan. Anda dapat mencoba kembali setelah 1 menit. Cobalah kembali, ini akan menambahkan kesempatan kepada anda sebelum benar-benar masuk list banned. Jika menurut anda ini adalah suatu kesalahan, hubungi Support.</string>
 	<string name="nux_tutorial_get_started_title">Memulai!</string>
 	<string name="reader_hint_comment_on_comment">Balas komentar…</string>
+	<string name="button_next">Selanjutnya</string>
 	<string name="all">Semua</string>
 	<string name="images">Gambar</string>
 	<string name="themes">Tema</string>
@@ -758,8 +1002,6 @@
 	<string name="unattached">Tidak terlampir</string>
 	<string name="media_add_popup_capture_photo">Ambil foto</string>
 	<string name="media_add_popup_capture_video">Rekam video</string>
-	<string name="media_no_video_title">VideoPress tak tersedia</string>
-	<string name="media_no_video_message">Dapatkan upgrade VideoPress untuk mengunggah video!</string>
 	<string name="media_edit_title_text">Judul</string>
 	<string name="media_edit_caption_text">Subjudul</string>
 	<string name="media_edit_description_text">Deskripsi</string>
@@ -812,6 +1054,7 @@
 	<string name="passcode_re_enter_passcode">Masukkan kembali PIN Anda</string>
 	<string name="passcode_change_passcode">Ubah PIN</string>
 	<string name="upload">Unggah</string>
+	<string name="discard">Batal</string>
 	<string name="notifications">Notifikasi</string>
 	<string name="note_reply_successful">Balasan telah terbit</string>
 	<string name="new_notifications">%d notifikasi baru</string>
@@ -819,8 +1062,6 @@
 	<string name="sign_in">Log masuk</string>
 	<string name="follows">Mengikuti</string>
 	<string name="loading">Memuat...</string>
-	<string name="post_signature">Kirim tandatangan</string>
-	<string name="add_tagline">Tambahkan sebuah tandatangan dalam tulisan baru</string>
 	<string name="httpuser">Nama pengguna HTTP</string>
 	<string name="httppassword">Kata sandi HTTP</string>
 	<string name="error_media_upload">Ada masalah ketika mengunggah media</string>
@@ -847,15 +1088,15 @@
 	<string name="scaled_image">Lebar gambar terskala</string>
 	<string name="scheduled">Dijadwalkan</string>
 	<string name="link_enter_url">URL</string>
-	<string name="posted_from">Ditulis dari WordPress untuk Android</string>
+	<string name="uploading">Mengunggah...</string>
 	<string name="version">Versi</string>
 	<string name="app_title">WordPress untuk Android</string>
 	<string name="tos">Syarat Layanan</string>
-	<string name="about">Tentang</string>
 	<string name="max_thumbnail_px_width">Lebar Gambar Baku</string>
 	<string name="image_alignment">Penjajaran</string>
 	<string name="refresh">Segarkan</string>
 	<string name="untitled">Tanpa judul</string>
+	<string name="edit">Sunting</string>
 	<string name="post_id">Tulisan</string>
 	<string name="page_id">Halaman</string>
 	<string name="post_password">Kata sandi (opsional)</string>
@@ -873,9 +1114,10 @@
 	<string name="categories">Kategori</string>
 	<string name="title">Judul</string>
 	<string name="tags_separate_with_commas">Tag (pisahkan tag dengan tanda koma)</string>
+	<string name="dlg_deleting_comments">Menghapus komentar</string>
 	<string name="notification_vibrate">Getar</string>
 	<string name="notification_blink">Lampu notifikasi berkelip</string>
-	<string name="notification_sound">Bunyikan suara notifikasi</string>
+	<string name="notification_sound">Bunyi notifikasi</string>
 	<string name="status">Status</string>
 	<string name="select_video">Pilih video dari galeri</string>
 	<string name="sdcard_title">Dibutuhkan SD Card</string>
@@ -896,70 +1138,4 @@
 	<string name="error">Galat</string>
 	<string name="category_refresh_error">Gagal memuat ulang Kategori</string>
 	<string name="notification_settings">Pengaturan Pemberitahuan</string>
-	<string-array name="alignment_array">
-		<item>Tak ada</item>
-		<item>Kiri</item>
-		<item>Tengah</item>
-		<item>Kanan</item>
-	</string-array>
-	<string-array name="notifications_blog_settings">
-		<item>Komentar di situs saya</item>
-		<item>Suka pada komentar saya</item>
-		<item>Suka pada pos saya</item>
-		<item>Pengikut Situs</item>
-		<item>Prestasi situs</item>
-		<item>Penyebutan nama pengguna</item>
-	</string-array>
-	<string-array name="notifications_other_settings">
-		<item>Balas komentar saya</item>
-		<item>Suka pada komentar saya</item>
-	</string-array>
-	<string-array name="notifications_wpcom_settings">
-		<item>Saran</item>
-		<item>Riset</item>
-		<item>Komunitas</item>
-	</string-array>
-	<string-array name="notifications_wpcom_settings_summaries">
-		<item>Kiat untuk mendapat maksimal dari WordPress.com.</item>
-		<item>Kesempatan untuk berpartisipasi dalam riset &amp; survei WordPress.com.</item>
-		<item>Informasi tentang kursus dan acara WordPress.com (online &amp; tatap muka).</item>
-	</string-array>
-	<string-array name="post_filters_array">
-		<item>Diterbitkan</item>
-		<item>Draf</item>
-		<item>Terjadwal</item>
-		<item>Dibuang</item>
-	</string-array>
-	<string-array name="post_formats_array">
-		<item>Di samping</item>
-		<item>Audio</item>
-		<item>Chat</item>
-		<item>Galeri</item>
-		<item>Gambar</item>
-		<item>Taut</item>
-		<item>Kutip</item>
-		<item>Standar</item>
-		<item>Status</item>
-		<item>Video</item>
-	</string-array>
-	<string-array name="privacy_details">
-		<item>Situs Anda dapat terlihat oleh semua dan mesin pencari bisa mengindeksnya</item>
-		<item>Situs Anda dapat terlihat oleh semua orang tetapi mesin pencari tidak akan mengindeksnya</item>
-		<item>Situs Anda hanya terlihat oleh Anda dan pengguna yang sudah Anda setujui</item>
-	</string-array>
-	<string-array name="site_settings_auto_approve_details">
-		<item>Diperlukan persetujuan manual untuk semua komentar.</item>
-		<item>Secara otomatis menyetujui jika pengguna sudah pernah disetujui komentarnya.</item>
-		<item>Secara otomatis menyetujui semua komentar</item>
-	</string-array>
-	<string-array name="site_settings_auto_approve_entries">
-		<item>Belum ada komentar</item>
-		<item>Komentar pengguna yang diketahui</item>
-		<item>Semua pengguna</item>
-	</string-array>
-	<string-array name="themes_filter_array">
-		<item>Gratis</item>
-		<item>Semua</item>
-		<item>Premium</item>
-	</string-array>
 </resources>

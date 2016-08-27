@@ -111,6 +111,15 @@ public class AnalyticsTrackerNosara extends Tracker {
             case READER_TAG_PREVIEWED:
                 eventName = "reader_tag_previewed";
                 break;
+            case READER_SEARCH_LOADED:
+                eventName = "reader_search_loaded";
+                break;
+            case READER_SEARCH_PERFORMED:
+                eventName = "reader_search_performed";
+                break;
+            case READER_SEARCH_RESULT_TAPPED:
+                eventName = "reader_searchcard_clicked";
+                break;
             case READER_TAG_UNFOLLOWED:
                 eventName = "reader_reader_tag_unfollowed";
                 break;
@@ -273,16 +282,25 @@ public class AnalyticsTrackerNosara extends Tracker {
                 predefinedEventProperties.put("menu_item", "site_settings");
                 break;
             case OPENED_ACCOUNT_SETTINGS:
-                eventName = "me_opened_account_settings";
+                eventName = "account_settings_opened";
                 break;
             case OPENED_APP_SETTINGS:
-                eventName = "me_opened_app_settings";
+                eventName = "app_settings_opened";
                 break;
             case OPENED_MY_PROFILE:
-                eventName = "me_opened_my_profile";
+                eventName = "my_profile_opened";
+                break;
+            case OPENED_PEOPLE_MANAGEMENT:
+                eventName = "people_management_list_opened";
+                break;
+            case OPENED_PERSON:
+                eventName = "people_management_details_opened";
                 break;
             case CREATED_ACCOUNT:
                 eventName = "account_created";
+                break;
+            case CREATED_SITE:
+                eventName = "site_created";
                 break;
             case SHARED_ITEM:
                 eventName = "item_shared";
@@ -339,6 +357,9 @@ public class AnalyticsTrackerNosara extends Tracker {
             case STATS_SELECTED_INSTALL_JETPACK:
                 eventName = "stats_install_jetpack_selected";
                 break;
+            case STATS_SELECTED_CONNECT_JETPACK:
+                eventName = "stats_connect_jetpack_selected";
+                break;
             case STATS_WIDGET_ADDED:
                 eventName = "stats_widget_added";
                 break;
@@ -360,11 +381,41 @@ public class AnalyticsTrackerNosara extends Tracker {
             case SUPPORT_SENT_REPLY_TO_SUPPORT_MESSAGE:
                 eventName = "support_reply_to_support_message_sent";
                 break;
+            case LOGIN_MAGIC_LINK_EXITED:
+                eventName = "login_magic_link_exited";
+                break;
+            case LOGIN_MAGIC_LINK_FAILED:
+                eventName = "login_magic_link_failed";
+                break;
+            case LOGIN_MAGIC_LINK_OPENED:
+                eventName = "login_magic_link_opened";
+                break;
+            case LOGIN_MAGIC_LINK_REQUESTED:
+                eventName = "login_magic_link_requested";
+                break;
+            case LOGIN_MAGIC_LINK_SUCCEEDED:
+                eventName = "login_magic_link_succeeded";
+                break;
             case LOGIN_FAILED:
                 eventName = "login_failed_to_login";
                 break;
             case LOGIN_FAILED_TO_GUESS_XMLRPC:
                 eventName = "login_failed_to_guess_xmlrpc";
+                break;
+            case LOGIN_INSERTED_INVALID_URL:
+                eventName = "login_inserted_invalid_url";
+                break;
+            case LOGIN_AUTOFILL_CREDENTIALS_FILLED:
+                eventName = "login_autofill_credentials_filled";
+                break;
+            case LOGIN_AUTOFILL_CREDENTIALS_UPDATED:
+                eventName = "login_autofill_credentials_updated";
+                break;
+            case PERSON_REMOVED:
+                eventName = "people_management_person_removed";
+                break;
+            case PERSON_UPDATED:
+                eventName = "people_management_person_updated";
                 break;
             case PUSH_AUTHENTICATION_APPROVED:
                 eventName = "push_authentication_approved";
@@ -389,6 +440,39 @@ public class AnalyticsTrackerNosara extends Tracker {
                 break;
             case ME_ACCESSED:
                 eventName = "me_tab_accessed";
+                break;
+            case ME_GRAVATAR_TAPPED:
+                eventName = "me_gravatar_tapped";
+                break;
+            case ME_GRAVATAR_TOOLTIP_TAPPED:
+                eventName = "me_gravatar_tooltip_tapped";
+                break;
+            case ME_GRAVATAR_PERMISSIONS_INTERRUPTED:
+                eventName = "me_gravatar_permissions_interrupted";
+                break;
+            case ME_GRAVATAR_PERMISSIONS_DENIED:
+                eventName = "me_gravatar_permissions_denied";
+                break;
+            case ME_GRAVATAR_PERMISSIONS_ACCEPTED:
+                eventName = "me_gravatar_permissions_accepted";
+                break;
+            case ME_GRAVATAR_SHOT_NEW:
+                eventName = "me_gravatar_shot_new";
+                break;
+            case ME_GRAVATAR_GALLERY_PICKED:
+                eventName = "me_gravatar_gallery_picked";
+                break;
+            case ME_GRAVATAR_CROPPED:
+                eventName = "me_gravatar_cropped";
+                break;
+            case ME_GRAVATAR_UPLOADED:
+                eventName = "me_gravatar_uploaded";
+                break;
+            case ME_GRAVATAR_UPLOAD_UNSUCCESSFUL:
+                eventName = "me_gravatar_upload_unsuccessful";
+                break;
+            case ME_GRAVATAR_UPLOAD_EXCEPTION:
+                eventName = "me_gravatar_upload_exception";
                 break;
             case MY_SITE_ACCESSED:
                 eventName = "my_site_tab_accessed";
@@ -483,6 +567,9 @@ public class AnalyticsTrackerNosara extends Tracker {
             case SITE_SETTINGS_DELETE_SITE_RESPONSE_ERROR:
                 eventName = "site_settings_delete_site_response_error";
                 break;
+            case ABTEST_START:
+                eventName = "abtest_start";
+                break;
             default:
                 eventName = null;
                 break;
@@ -556,23 +643,22 @@ public class AnalyticsTrackerNosara extends Tracker {
     }
 
     @Override
-    public void refreshMetadata(boolean isUserConnected, boolean isWordPressComUser, boolean isJetpackUser,
-                                int sessionCount, int numBlogs, int versionCode, String username, String email) {
+    public void refreshMetadata(AnalyticsMetadata metadata) {
         if (mNosaraClient == null) {
             return;
         }
 
         try {
             JSONObject properties = new JSONObject();
-            properties.put(JETPACK_USER, isJetpackUser);
-            properties.put(NUMBER_OF_BLOGS, numBlogs);
+            properties.put(JETPACK_USER, metadata.isJetpackUser());
+            properties.put(NUMBER_OF_BLOGS, metadata.getNumBlogs());
             mNosaraClient.registerUserProperties(properties);
         } catch (JSONException e) {
             AppLog.e(AppLog.T.UTILS, e);
         }
 
-        if (isUserConnected && isWordPressComUser) {
-            setWordPressComUserName(username);
+        if (metadata.isUserConnected() && metadata.isWordPressComUser()) {
+            setWordPressComUserName(metadata.getUsername());
             // Re-unify the user
             if (getAnonID() != null) {
                 mNosaraClient.trackAliasUser(getWordPressComUserName(), getAnonID(), TracksClient.NosaraUserType.WPCOM);

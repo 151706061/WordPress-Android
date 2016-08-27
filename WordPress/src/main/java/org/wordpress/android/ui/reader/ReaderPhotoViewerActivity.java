@@ -30,6 +30,7 @@ public class ReaderPhotoViewerActivity extends AppCompatActivity
 
     private String mInitialImageUrl;
     private boolean mIsPrivate;
+    private boolean mIsGallery;
     private String mContent;
     private WPViewPager mViewPager;
     private PhotoPagerAdapter mAdapter;
@@ -50,15 +51,17 @@ public class ReaderPhotoViewerActivity extends AppCompatActivity
         if (savedInstanceState != null) {
             mInitialImageUrl = savedInstanceState.getString(ReaderConstants.ARG_IMAGE_URL);
             mIsPrivate = savedInstanceState.getBoolean(ReaderConstants.ARG_IS_PRIVATE);
+            mIsGallery = savedInstanceState.getBoolean(ReaderConstants.ARG_IS_GALLERY);
             mContent = savedInstanceState.getString(ReaderConstants.ARG_CONTENT);
         } else if (getIntent() != null) {
             mInitialImageUrl = getIntent().getStringExtra(ReaderConstants.ARG_IMAGE_URL);
             mIsPrivate = getIntent().getBooleanExtra(ReaderConstants.ARG_IS_PRIVATE, false);
+            mIsGallery = getIntent().getBooleanExtra(ReaderConstants.ARG_IS_GALLERY, false);
             mContent = getIntent().getStringExtra(ReaderConstants.ARG_CONTENT);
         }
 
         mViewPager.setPageTransformer(false, new ReaderViewPagerTransformer(TransformType.FLOW));
-        mViewPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
+        mViewPager.addOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
             @Override
             public void onPageSelected(int position) {
                 updateTitle(position);
@@ -70,12 +73,14 @@ public class ReaderPhotoViewerActivity extends AppCompatActivity
     }
 
     private void loadImageList() {
+        // content will be empty when viewing a single image, otherwise content is HTML
+        // so parse images from it
         final ReaderImageList imageList;
         if (TextUtils.isEmpty(mContent)) {
-            // content will be empty when we're viewing a single image
             imageList = new ReaderImageList(mIsPrivate);
+        } else if (mIsGallery) {
+            imageList = new ReaderImageScanner(mContent, mIsPrivate).getGalleryImageList();
         } else {
-            // otherwise content is HTML so parse images from it
             imageList = new ReaderImageScanner(mContent, mIsPrivate).getImageList();
         }
 
@@ -106,6 +111,7 @@ public class ReaderPhotoViewerActivity extends AppCompatActivity
         }
 
         outState.putBoolean(ReaderConstants.ARG_IS_PRIVATE, mIsPrivate);
+        outState.putBoolean(ReaderConstants.ARG_IS_GALLERY, mIsGallery);
         outState.putString(ReaderConstants.ARG_CONTENT, mContent);
 
         super.onSaveInstanceState(outState);

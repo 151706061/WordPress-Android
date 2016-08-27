@@ -28,10 +28,10 @@ import android.widget.TextView;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.wordpress.android.util.AppLog;
+import org.wordpress.android.util.MediaUtils;
 import org.wordpress.android.util.ToastUtils;
 
 import java.util.Arrays;
-import java.util.Locale;
 import java.util.Map;
 
 /**
@@ -41,11 +41,8 @@ import java.util.Map;
  * when the fragment is dismissed to restore it.
  */
 public class ImageSettingsDialogFragment extends DialogFragment {
-
     public static final int IMAGE_SETTINGS_DIALOG_REQUEST_CODE = 5;
     public static final String IMAGE_SETTINGS_DIALOG_TAG = "image-settings";
-
-    private static final int DEFAULT_MAX_IMAGE_WIDTH = 1024;
 
     private JSONObject mImageMeta;
     private int mMaxImageWidth;
@@ -54,6 +51,7 @@ public class ImageSettingsDialogFragment extends DialogFragment {
     private EditText mCaptionText;
     private EditText mAltText;
     private Spinner mAlignmentSpinner;
+    private String[] mAlignmentKeyArray;
     private EditText mLinkTo;
     private EditText mWidthText;
     private CheckBox mFeaturedCheckBox;
@@ -161,16 +159,14 @@ public class ImageSettingsDialogFragment extends DialogFragment {
                 mAltText.setText(mImageMeta.getString("alt"));
 
                 String alignment = mImageMeta.getString("align");
-
-                // Capitalize the alignment value to match the spinner entries
-                alignment = alignment.substring(0, 1).toUpperCase(Locale.US) + alignment.substring(1);
-
-                String[] alignmentArray = getResources().getStringArray(R.array.alignment_array);
-                mAlignmentSpinner.setSelection(Arrays.asList(alignmentArray).indexOf(alignment));
+                mAlignmentKeyArray = getResources().getStringArray(R.array.alignment_key_array);
+                int alignmentIndex = Arrays.asList(mAlignmentKeyArray).indexOf(alignment);
+                mAlignmentSpinner.setSelection(alignmentIndex == -1 ? 0 : alignmentIndex);
 
                 mLinkTo.setText(mImageMeta.getString("linkUrl"));
 
-                mMaxImageWidth = getMaximumImageWidth(mImageMeta.getInt("naturalWidth"), bundle.getString("maxWidth"));
+                mMaxImageWidth = MediaUtils.getMaximumImageWidth(mImageMeta.getInt("naturalWidth"),
+                        bundle.getString("maxWidth"));
 
                 setupWidthSeekBar(widthSeekBar, mWidthText, mImageMeta.getInt("width"));
 
@@ -192,6 +188,7 @@ public class ImageSettingsDialogFragment extends DialogFragment {
 
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
         ActionBar actionBar = getActionBar();
         if (actionBar != null) {
             actionBar.show();
@@ -255,6 +252,7 @@ public class ImageSettingsDialogFragment extends DialogFragment {
             AppLog.d(AppLog.T.EDITOR, "Unable to update JSON array");
         }
 
+        getTargetFragment().onActivityResult(getTargetRequestCode(), getTargetRequestCode(), null);
         restorePreviousActionBar();
         getFragmentManager().popBackStack();
     }
@@ -281,6 +279,7 @@ public class ImageSettingsDialogFragment extends DialogFragment {
         builder.setTitle(getString(R.string.image_settings_dismiss_dialog_title));
         builder.setPositiveButton(getString(R.string.discard), new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
+                getTargetFragment().onActivityResult(getTargetRequestCode(), getTargetRequestCode(), null);
                 restorePreviousActionBar();
                 getFragmentManager().popBackStack();
             }
@@ -304,7 +303,9 @@ public class ImageSettingsDialogFragment extends DialogFragment {
             metaData.put("title", mTitleText.getText().toString());
             metaData.put("caption", mCaptionText.getText().toString());
             metaData.put("alt", mAltText.getText().toString());
-            metaData.put("align", mAlignmentSpinner.getSelectedItem().toString().toLowerCase(Locale.US));
+            if (mAlignmentSpinner.getSelectedItemPosition() < mAlignmentKeyArray.length) {
+                metaData.put("align", mAlignmentKeyArray[mAlignmentSpinner.getSelectedItemPosition()]);
+            }
             metaData.put("linkUrl", mLinkTo.getText().toString());
 
             int newWidth = getEditTextIntegerClamped(mWidthText, 10, mMaxImageWidth);
@@ -392,34 +393,6 @@ public class ImageSettingsDialogFragment extends DialogFragment {
                 return true;
             }
         });
-    }
-
-    /**
-     * Calculate and return the maximum allowed image width by comparing the width of the image at its full size with
-     * the maximum upload width set in the blog settings
-     * @param naturalImageWidth the image's natural (full) width
-     * @param imageWidthBlogSettingString the maximum upload width set in the blog settings
-     * @return
-     */
-    public static int getMaximumImageWidth(int naturalImageWidth, String imageWidthBlogSettingString) {
-        int imageWidthBlogSetting = Integer.MAX_VALUE;
-
-        if (!imageWidthBlogSettingString.equals("Original Size")) {
-            try {
-                imageWidthBlogSetting = Integer.valueOf(imageWidthBlogSettingString);
-            } catch (NumberFormatException e) {
-                AppLog.e(AppLog.T.EDITOR, e);
-            }
-        }
-
-        int imageWidthPictureSetting = naturalImageWidth == 0 ? Integer.MAX_VALUE : naturalImageWidth;
-
-        if (Math.min(imageWidthPictureSetting, imageWidthBlogSetting) == Integer.MAX_VALUE) {
-            // Default value in case of errors reading the picture size and the blog settings is set to Original size
-            return DEFAULT_MAX_IMAGE_WIDTH;
-        } else {
-            return Math.min(imageWidthPictureSetting, imageWidthBlogSetting);
-        }
     }
 
     /**

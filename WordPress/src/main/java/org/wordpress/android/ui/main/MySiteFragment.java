@@ -23,6 +23,7 @@ import org.wordpress.android.WordPress;
 import org.wordpress.android.models.Account;
 import org.wordpress.android.models.AccountHelper;
 import org.wordpress.android.models.Blog;
+import org.wordpress.android.models.Capability;
 import org.wordpress.android.models.CommentStatus;
 import org.wordpress.android.ui.ActivityLauncher;
 import org.wordpress.android.ui.RequestCodes;
@@ -41,6 +42,7 @@ import org.wordpress.android.util.UrlUtils;
 import org.wordpress.android.widgets.WPNetworkImageView;
 import org.wordpress.android.widgets.WPTextView;
 
+import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.TimeZone;
 
@@ -49,8 +51,8 @@ import de.greenrobot.event.EventBus;
 public class MySiteFragment extends Fragment
         implements WPMainActivity.OnScrollToTopListener {
 
-    private static final long ALERT_ANIM_OFFSET_MS   = 1000l;
-    private static final long ALERT_ANIM_DURATION_MS = 1000l;
+    private static final long ALERT_ANIM_OFFSET_MS   = 1000L;
+    private static final long ALERT_ANIM_DURATION_MS = 1000L;
     public static final int HIDE_WP_ADMIN_YEAR = 2015;
     public static final int HIDE_WP_ADMIN_MONTH = 9;
     public static final int HIDE_WP_ADMIN_DAY = 7;
@@ -61,10 +63,11 @@ public class MySiteFragment extends Fragment
     private WPTextView mBlogSubtitleTextView;
     private LinearLayout mLookAndFeelHeader;
     private RelativeLayout mThemesContainer;
+    private RelativeLayout mPeopleView;
     private RelativeLayout mPlanContainer;
     private View mConfigurationHeader;
     private View mSettingsView;
-    private LinearLayout mAdminView;
+    private RelativeLayout mAdminView;
     private View mFabView;
     private LinearLayout mNoSiteView;
     private ScrollView mScrollView;
@@ -142,10 +145,11 @@ public class MySiteFragment extends Fragment
         mBlogSubtitleTextView = (WPTextView) rootView.findViewById(R.id.my_site_subtitle_label);
         mLookAndFeelHeader = (LinearLayout) rootView.findViewById(R.id.my_site_look_and_feel_header);
         mThemesContainer = (RelativeLayout) rootView.findViewById(R.id.row_themes);
+        mPeopleView = (RelativeLayout) rootView.findViewById(R.id.row_people);
         mPlanContainer = (RelativeLayout) rootView.findViewById(R.id.row_plan);
         mConfigurationHeader = rootView.findViewById(R.id.row_configuration);
         mSettingsView = rootView.findViewById(R.id.row_settings);
-        mAdminView = (LinearLayout) rootView.findViewById(R.id.admin_section);
+        mAdminView = (RelativeLayout) rootView.findViewById(R.id.row_admin);
         mScrollView = (ScrollView) rootView.findViewById(R.id.scroll_view);
         mNoSiteView = (LinearLayout) rootView.findViewById(R.id.no_site_view);
         mNoSiteDrakeImageView = (ImageView) rootView.findViewById(R.id.my_site_no_site_view_drake);
@@ -169,7 +173,7 @@ public class MySiteFragment extends Fragment
         rootView.findViewById(R.id.row_view_site).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ActivityLauncher.viewCurrentSite(getActivity());
+                ActivityLauncher.viewCurrentSite(getActivity(), WordPress.getBlog(mBlogLocalId));
             }
         });
 
@@ -180,14 +184,12 @@ public class MySiteFragment extends Fragment
             }
         });
 
-        if (isPlansEnabled()) {
-            mPlanContainer.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    ActivityLauncher.viewBlogPlans(getActivity(), mBlogLocalId);
-                }
-            });
-        }
+        mPlanContainer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ActivityLauncher.viewBlogPlans(getActivity(), mBlogLocalId);
+            }
+        });
 
         rootView.findViewById(R.id.row_blog_posts).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -224,6 +226,13 @@ public class MySiteFragment extends Fragment
             }
         });
 
+        mPeopleView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ActivityLauncher.viewCurrentBlogPeople(getActivity());
+            }
+        });
+
         mSettingsView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -246,13 +255,6 @@ public class MySiteFragment extends Fragment
         });
 
         return rootView;
-    }
-
-    /*
-     * plans is a work-in-progress and is currently only exposed to alpha testers
-     */
-    private static boolean isPlansEnabled() {
-        return AppPrefs.isInAppBillingAvailable();
     }
 
     private void showSitePicker() {
@@ -343,16 +345,21 @@ public class MySiteFragment extends Fragment
         mScrollView.setVisibility(View.VISIBLE);
         mNoSiteView.setVisibility(View.GONE);
 
-        toggleAdminVisibility();
+        toggleAdminVisibility(blog);
 
         int themesVisibility = ThemeBrowserActivity.isAccessible() ? View.VISIBLE : View.GONE;
         mLookAndFeelHeader.setVisibility(themesVisibility);
         mThemesContainer.setVisibility(themesVisibility);
 
         // show settings for all self-hosted to expose Delete Site
-        int settingsVisibility = blog.isAdmin() || !blog.isDotcomFlag() ? View.VISIBLE : View.GONE;
+        boolean isAdminOrSelfHosted =  blog.isAdmin() || !blog.isDotcomFlag();
+        boolean canListPeople = blog.hasCapability(Capability.LIST_USERS);
+        mSettingsView.setVisibility(isAdminOrSelfHosted ? View.VISIBLE : View.GONE);
+        mPeopleView.setVisibility(canListPeople ? View.VISIBLE : View.GONE);
+
+        // if either people or settings is visible, configuration header should be visible
+        int settingsVisibility = (isAdminOrSelfHosted || canListPeople) ? View.VISIBLE : View.GONE;
         mConfigurationHeader.setVisibility(settingsVisibility);
-        mSettingsView.setVisibility(settingsVisibility);
 
         mBlavatarImageView.setImageUrl(GravatarUtils.blavatarFromUrl(blog.getUrl(), mBlavatarSz), WPNetworkImageView.ImageType.BLAVATAR);
 
@@ -369,31 +376,31 @@ public class MySiteFragment extends Fragment
         mBlogTitleTextView.setText(blogTitle);
         mBlogSubtitleTextView.setText(homeURL);
 
-        // Hide the Plan item if the Plans feature is not available.
-        if (isPlansEnabled()) {
-            String planShortName = blog.getPlanShortName();
-            if (!TextUtils.isEmpty(planShortName)) {
-                mCurrentPlanNameTextView.setText(planShortName);
-                mPlanContainer.setVisibility(View.VISIBLE);
-            } else {
-                mPlanContainer.setVisibility(View.GONE);
-            }
+        // Hide the Plan item if the Plans feature is not available for this blog
+        String planShortName = blog.getPlanShortName();
+        if (!TextUtils.isEmpty(planShortName)) {
+            mCurrentPlanNameTextView.setText(planShortName);
+            mPlanContainer.setVisibility(View.VISIBLE);
         } else {
             mPlanContainer.setVisibility(View.GONE);
         }
     }
 
-    private void toggleAdminVisibility() {
-        if (shouldHideWPAdmin()) {
+    private void toggleAdminVisibility(@Nullable final Blog blog) {
+        if (blog == null) {
+            return;
+        }
+        if (shouldHideWPAdmin(blog)) {
             mAdminView.setVisibility(View.GONE);
         } else {
             mAdminView.setVisibility(View.VISIBLE);
         }
     }
 
-    private boolean shouldHideWPAdmin() {
-        Blog blog = WordPress.getCurrentBlog();
-
+    private boolean shouldHideWPAdmin(@Nullable final Blog blog) {
+        if (blog == null) {
+            return false;
+        }
         if (!blog.isDotcomFlag()) {
             return false;
         } else {
@@ -402,7 +409,8 @@ public class MySiteFragment extends Fragment
             GregorianCalendar calendar = new GregorianCalendar(HIDE_WP_ADMIN_YEAR, HIDE_WP_ADMIN_MONTH, HIDE_WP_ADMIN_DAY);
             calendar.setTimeZone(TimeZone.getTimeZone(HIDE_WP_ADMIN_GMT_TIME_ZONE));
 
-            return account.getDateCreated().after(calendar.getTime());
+            Date dateCreated = account.getDateCreated();
+            return dateCreated != null && dateCreated.after(calendar.getTime());
         }
     }
 

@@ -3,7 +3,6 @@ package org.wordpress.android.ui;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.Menu;
@@ -21,18 +20,21 @@ import org.wordpress.android.WordPress;
 import org.wordpress.android.models.AccountHelper;
 import org.wordpress.android.models.Blog;
 import org.wordpress.android.models.Post;
+import org.wordpress.android.ui.reader.ReaderActivityLauncher;
 import org.wordpress.android.util.AppLog;
 import org.wordpress.android.util.StringUtils;
+import org.wordpress.android.util.URLFilteredWebViewClient;
 import org.wordpress.android.util.UrlUtils;
 import org.wordpress.android.util.WPMeShortlinks;
 import org.wordpress.android.util.WPUrlUtils;
 import org.wordpress.android.util.WPWebViewClient;
 import org.wordpress.android.util.helpers.WPWebChromeClient;
-import org.wordpress.passcodelock.AppLockManager;
 
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Type;
 import java.net.URLEncoder;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -65,6 +67,7 @@ import java.util.Map;
  * - AUTHENTICATION_PASSWD: password.
  * - LOCAL_BLOG_ID: local id of the blog in the app database. This is required since some blogs could have HTTP Auth,
  * or self-signed certs in place.
+ * - REFERRER_URL: url to add as an HTTP referrer header, currently only used for non-authed reader posts
  *
  */
 public class WPWebViewActivity extends WebViewActivity {
@@ -75,6 +78,8 @@ public class WPWebViewActivity extends WebViewActivity {
     public static final String WPCOM_LOGIN_URL = "https://wordpress.com/wp-login.php";
     public static final String LOCAL_BLOG_ID = "local_blog_id";
     public static final String SHARABLE_URL = "sharable_url";
+    public static final String REFERRER_URL = "referrer_url";
+    public static final String DISABLE_LINKS_ON_PAGE = "DISABLE_LINKS_ON_PAGE";
 
     private static final String ENCODING_UTF8 = "UTF-8";
 
@@ -82,6 +87,7 @@ public class WPWebViewActivity extends WebViewActivity {
         openWPCOMURL(context, url, user);
     }
 
+    // Note: The webview has links disabled!!
     public static void openUrlByUsingBlogCredentials(Context context, Blog blog, Post post, String url) {
         if (context == null) {
             AppLog.e(AppLog.T.UTILS, "Context is null");
@@ -107,6 +113,7 @@ public class WPWebViewActivity extends WebViewActivity {
         intent.putExtra(WPWebViewActivity.URL_TO_LOAD, url);
         intent.putExtra(WPWebViewActivity.AUTHENTICATION_URL, authURL);
         intent.putExtra(WPWebViewActivity.LOCAL_BLOG_ID, blog.getLocalTableBlogId());
+        intent.putExtra(WPWebViewActivity.DISABLE_LINKS_ON_PAGE, true);
         if (post != null) {
             intent.putExtra(WPWebViewActivity.SHARABLE_URL, WPMeShortlinks.getPostShortlink(blog, post));
         }
@@ -114,6 +121,9 @@ public class WPWebViewActivity extends WebViewActivity {
     }
 
     public static void openURL(Context context, String url) {
+        openURL(context, url, null);
+    }
+    public static void openURL(Context context, String url, String referrer) {
         if (context == null) {
             AppLog.e(AppLog.T.UTILS, "Context is null");
             return;
@@ -128,6 +138,9 @@ public class WPWebViewActivity extends WebViewActivity {
 
         Intent intent = new Intent(context, WPWebViewActivity.class);
         intent.putExtra(WPWebViewActivity.URL_TO_LOAD, url);
+        if (!TextUtils.isEmpty(referrer)) {
+            intent.putExtra(REFERRER_URL, referrer);
+        }
         context.startActivity(intent);
     }
 
@@ -163,17 +176,35 @@ public class WPWebViewActivity extends WebViewActivity {
         mWebView.getSettings().setJavaScriptEnabled(true);
         mWebView.getSettings().setDomStorageEnabled(true);
 
+        WebViewClient webViewClient;
+        Bundle extras = getIntent().getExtras();
+
+        // Configure the allowed URLs if available
+        ArrayList<String> allowedURL = null;
+        if (extras.getBoolean(DISABLE_LINKS_ON_PAGE, false)) {
+            String addressToLoad = extras.getString(URL_TO_LOAD);
+            String authURL = extras.getString(AUTHENTICATION_URL);
+            allowedURL = new ArrayList<>();
+            if (!TextUtils.isEmpty(addressToLoad)) {
+                allowedURL.add(addressToLoad);
+            }
+            if (!TextUtils.isEmpty(authURL)) {
+                allowedURL.add(authURL);
+            }
+        }
+
         if (getIntent().hasExtra(LOCAL_BLOG_ID)) {
             Blog blog = WordPress.getBlog(getIntent().getIntExtra(LOCAL_BLOG_ID, -1));
             if (blog == null) {
                 AppLog.e(AppLog.T.UTILS, "No valid blog passed to WPWebViewActivity");
                 finish();
             }
-            mWebView.setWebViewClient(new WPWebViewClient(blog));
+            webViewClient = new WPWebViewClient(blog, allowedURL);
         } else {
-            mWebView.setWebViewClient(new WebViewClient());
+            webViewClient = new URLFilteredWebViewClient(allowedURL);
         }
 
+        mWebView.setWebViewClient(webViewClient);
         mWebView.setWebChromeClient(new WPWebChromeClient(this, (ProgressBar) findViewById(R.id.progress_bar)));
     }
 
@@ -200,8 +231,16 @@ public class WPWebViewActivity extends WebViewActivity {
         }
 
         if (TextUtils.isEmpty(authURL) && TextUtils.isEmpty(username) && TextUtils.isEmpty(password)) {
-            // Only the URL to load is passed to this activity. Use a the normal loader not authenticated.
-            loadUrl(addressToLoad);
+            // Only the URL to load is passed to this activity. Use the normal un-authenticated
+            // loader, optionally with our referrer header
+            String referrerUrl = extras.getString(REFERRER_URL);
+            if (!TextUtils.isEmpty(referrerUrl)) {
+                Map<String, String> headers = new HashMap<>();
+                headers.put("Referer", referrerUrl);
+                loadUrl(addressToLoad, headers);
+            } else {
+                loadUrl(addressToLoad);
+            }
         } else {
             if (TextUtils.isEmpty(authURL) || !UrlUtils.isValidUrlAndHostNotNull(authURL)) {
                 AppLog.e(AppLog.T.UTILS, "Empty or null or invalid auth URL passed to WPWebViewActivity");
@@ -218,12 +257,6 @@ public class WPWebViewActivity extends WebViewActivity {
 
             loadAuthenticatedUrl(authURL, addressToLoad, username, password);
         }
-    }
-
-    @Override
-    public void finish() {
-        super.finish();
-        ActivityLauncher.slideOutToRight(this);
     }
 
     /**
@@ -321,16 +354,7 @@ public class WPWebViewActivity extends WebViewActivity {
             startActivity(Intent.createChooser(share, getText(R.string.share_link)));
             return true;
         } else if (itemID == R.id.menu_browser) {
-            String url = mWebView.getUrl();
-            if (url != null) {
-                Uri uri = Uri.parse(url);
-                if (uri != null) {
-                    Intent i = new Intent(Intent.ACTION_VIEW);
-                    i.setData(uri);
-                    startActivity(i);
-                    AppLockManager.getInstance().setExtendedTimeout();
-                }
-            }
+            ReaderActivityLauncher.openUrl(this, mWebView.getUrl(), ReaderActivityLauncher.OpenUrlType.EXTERNAL);
             return true;
         }
 
